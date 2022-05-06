@@ -36,9 +36,9 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'forgotYourPassword', component: ForgotYourPasswordComponent},
   { path: 'home/:id', component: HomeComponent},
-  { path: 'account', component: AccountComponent},
-  { path: 'account/edit-data', component: EditPersonalDataComponent},
-  { path: 'product', component: ProductsComponent},
+  { path: 'account/:id', component: AccountComponent},
+  { path: 'account/edit-data/:id', component: EditPersonalDataComponent},
+  { path: 'product/:id', component: ProductsComponent},
   {path:'product-details/:id',component:ProductDetailsComponent},
   { path: 'favorites', component: FavoritesComponent}
 ];

@@ -1,37 +1,35 @@
 <div>
-  <button id="back-btn" [routerLink]="'/home'" mat-icon-button color="transparent">
+  <a href="/home/{{userData.id}}">
     <mat-icon>arrow_back</mat-icon>
-  </button>
+  </a>
   <button id="settings-btn" mat-icon-button color="transparent">
     <mat-icon>settings</mat-icon>
   </button>
   <h1>Account</h1>
   <img class="circular--square" src="assets/avatar.png">
   <h3>Username</h3>
-  <h2>{{users_name}}</h2>
+  <h2>{{userData.firstName}}  {{userData.lastName}}</h2>
   <h2>
     <mat-icon >person</mat-icon>
     Personal Data
-    <button id="person-btn" [routerLink]="'/account/edit-data'" mat-icon-button color="transparent">
+    <a href="/account/edit-data/{{userData.id}}">
       <mat-icon>keyboard_arrow_right</mat-icon>
-    </button>
+    </a>
   </h2>
   <h2>
     <mat-icon>payment</mat-icon>
     Payment Methods
-    <button id="payment-btn" mat-icon-button color="transparent">
-      <mat-icon>keyboard_arrow_right</mat-icon>
-    </button>
+    <a ><mat-icon>keyboard_arrow_right</mat-icon></a>
   </h2>
   <mat-slide-toggle [(ngModel)]="notif_activated" class="mat-slide-toggle" color="switch">
     <h2 [style.color]="notif_activated ? 'green' : 'black'">Notifications</h2>
   </mat-slide-toggle>
   <div class="sign-out">
     <h2>
-      <button id="sign-out-btn" mat-icon-button color="red">
+      <button [routerLink]="''" id="sign-out-btn" mat-icon-button color="red">
         <mat-icon>exit_to_app</mat-icon>
       </button>
-      Sign out
+      <a href="">Sign out</a>
     </h2>
   </div>
 </div>

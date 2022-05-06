@@ -13,5 +13,5 @@
   <mat-icon aria-hidden="false" aria-label="Example done icon" class="icon">qr_code</mat-icon>
   <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">search</mat-icon>
   <mat-icon [routerLink]="'/favorites'" aria-hidden="false" aria-label="Example home icon" class="icon">favorite</mat-icon>
-  <img [routerLink]="'/account'" src="assets/avatar.png" alt="">
+  <a href="/account/{{userData.id}}"><img src="assets/avatar.png" alt="" ></a>
 </mat-card>
