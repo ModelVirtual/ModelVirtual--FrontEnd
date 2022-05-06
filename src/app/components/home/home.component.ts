@@ -1,9 +1,4 @@
-import {Component, Input, NgModule, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {UserService} from "../../services/user.service";
-import {EMPTY, Observable} from "rxjs";
-import {Users} from "../../interfaces/user.interface";
-import {catchError} from "rxjs/operators";
+import {Component, NgModule, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +7,9 @@ import {catchError} from "rxjs/operators";
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {
-
-  }
+  constructor() { }
 
   ngOnInit(): void {
-
   }
 
 }
