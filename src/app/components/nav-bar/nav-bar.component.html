@@ -9,9 +9,17 @@
   </div>
 </mat-card>
 <mat-card class="head">
-  <mat-icon [routerLink]="'/home'" aria-hidden="false" aria-label="Example home icon" class="icon">home</mat-icon>
-  <mat-icon aria-hidden="false" aria-label="Example done icon" class="icon">qr_code</mat-icon>
-  <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">search</mat-icon>
-  <mat-icon [routerLink]="'/favorites'" aria-hidden="false" aria-label="Example home icon" class="icon">favorite</mat-icon>
+  <a class="linkSecction" href="/home/{{userData.id}}">
+    <mat-icon  aria-hidden="false" aria-label="Example home icon" class="icon">home</mat-icon>
+  </a>
+  <a class="linkSecction">
+    <mat-icon aria-hidden="false" aria-label="Example done icon" class="icon">qr_code</mat-icon>
+  </a>
+  <a class="linkSecction" href ="/shoplist/{{userData.id}}">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">search</mat-icon>
+  </a>
+  <a class="linkSecction" href="/favorites/{{userData.id}}">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">favorite</mat-icon>
+  </a>
   <a href="/account/{{userData.id}}"><img src="assets/avatar.png" alt="" ></a>
 </mat-card>

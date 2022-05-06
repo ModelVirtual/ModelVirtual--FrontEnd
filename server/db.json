@@ -81,19 +81,6 @@
   ],
   "favorites": [
     {
-      "id": 5,
-      "name": "Esmoquin De Mohair Y Lana de hombre de color negro",
-      "price": 2800,
-      "brand": "Gucci",
-      "image": "https://i.ibb.co/L96j2zB/ID5.jpg",
-      "size": [
-        "XS",
-        "S",
-        "M",
-        "L"
-      ]
-    },
-    {
       "id": 4,
       "name": "Vestido camisero de lana",
       "price": 1500,
@@ -112,6 +99,19 @@
       "price": 3400,
       "brand": "Gucci",
       "image": "https://i.ibb.co/GVTfPKg/ID1.jpg",
+      "size": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Camiseta Gucci Firenze 1921 de algodón",
+      "price": 390,
+      "brand": "Gucci",
+      "image": "https://i.ibb.co/Tcgffbt/ID2.jpg",
       "size": [
         "XS",
         "S",
@@ -138,6 +138,24 @@
       "password": "12345",
       "ProfileImage": "",
       "year": 18
+    },
+    {
+      "year": 0,
+      "ProfileImage": "",
+      "email": "u202019287@upc.edu.pe",
+      "firstName": "Diego",
+      "lastName": "Porta Ñaña",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "year": 0,
+      "ProfileImage": "",
+      "email": "LiTang@gmail.com",
+      "firstName": "luis",
+      "lastName": "Li Tang",
+      "password": "rayito123",
+      "id": 4
     }
   ]
 }
