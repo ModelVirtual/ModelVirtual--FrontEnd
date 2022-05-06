@@ -2,37 +2,35 @@
   <img src="https://i.ibb.co/h9sV0Fx/Logo.png" alt="">
 </div>
 <div class="container">
-  <form class="example-form">
-    <table class="example-full-width" cellspacing="0">
-      <mat-form-field class="example-full-width">
-        <mat-label>First name</mat-label>
-        <input matInput>
-      </mat-form-field>
-      <mat-form-field class="example-full-width" >
-        <mat-label>Last Name</mat-label>
-        <input matInput>
-      </mat-form-field>
-    </table>
-    <p>
-      <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-               placeholder="Ex. pat@example.com" class="email">
-        <mat-hint>Enter your email</mat-hint>
-      </mat-form-field>
-      <mat-form-field class="example-full-width" >
-        <mat-label>Password</mat-label>
-        <input type="password" matInput #message maxlength="25">
-      </mat-form-field>
-      <mat-form-field class="example-full-width" >
-        <mat-label>Confirm Password</mat-label>
-        <input type="password" matInput #message maxlength="25">
-      </mat-form-field>
-    </p>
+  <form #userForm = 'ngForm'>
+    <mat-form-field class="example-full-width">
+      <mat-label>First name</mat-label>
+      <input matInput id="valueId" [(ngModel)]="productUser.firstName" name="first">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" >
+      <mat-label>Last Name</mat-label>
+      <input matInput [(ngModel)]="productUser.lastName" name="last">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ex. pat@example.com" class="email"
+             [(ngModel)]="productUser.email" name="email">
+      <mat-hint>Enter your email</mat-hint>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" >
+      <mat-label>Password</mat-label>
+      <input type="password" matInput #message maxlength="25"
+             [(ngModel)]="productUser.password" name="password">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" >
+      <mat-label>Confirm Password</mat-label>
+      <input type="password" matInput #message maxlength="25">
+    </mat-form-field>
+    <div class="button">
+      <button mat-raised-button (click)="insertUser()">Register</button>
+    </div>
   </form>
-</div>
-<div class="button">
-  <button mat-raised-button>Register</button>
 </div>
 <div class="paragraph">
   <a href="forgotYourPassword" class="forgot_password">I forgot my password</a>

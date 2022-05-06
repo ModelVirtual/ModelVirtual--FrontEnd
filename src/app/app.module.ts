@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'account/edit-data/:id', component: EditPersonalDataComponent},
   { path: 'product/:id', component: ProductsComponent},
   {path:'product-details/:id',component:ProductDetailsComponent},
-  { path: 'favorites', component: FavoritesComponent}
+  { path: 'favorites/:id', component: FavoritesComponent}
 ];
 
 @NgModule({
