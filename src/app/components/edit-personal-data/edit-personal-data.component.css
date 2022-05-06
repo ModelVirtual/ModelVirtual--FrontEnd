@@ -1,0 +1,36 @@
+* {
+  background: #F1F1F1;
+  padding: 5px;
+}
+h1 {
+  font-size: 18pt;
+  color: black;
+  font-weight: normal;
+}
+img {
+  height: 77px;
+  width: 77px;
+  display: block;
+  margin: 0px auto;
+}
+h1, p {
+  text-align: center;
+}
+mat-form-field {
+  padding: 1px;
+}
+.circular--square {
+  border-radius: 50%;
+}
+.mat-white {
+  background-color: transparent;
+  transition: all 0.1s linear;
+}
+.mat-white:hover {
+  background-color: lightgray;
+}
+#edit-btn {
+  width:20%;
+  margin-left:40%;
+  margin-right:40%;
+}

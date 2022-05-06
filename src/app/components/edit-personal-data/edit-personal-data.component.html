@@ -1,0 +1,40 @@
+<div>
+  <button id="back-btn" [routerLink]="'/account'" mat-icon-button>
+    <mat-icon>arrow_back</mat-icon>
+  </button> <br>
+  <img class="circular--square" src="assets/avatar.png">
+  <h1>{{users_name}}</h1>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Mobile</mat-label>
+      <input #mobileinput matInput placeholder="123456789" [formControl]="phone_valid" required>
+      <mat-error *ngIf="phone_valid.invalid">{{getErrorPhone()}}</mat-error>
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="name@email.com" #emailinput [formControl]="email_valid" required>
+      <mat-error *ngIf="email_valid.invalid">{{getErrorEmail()}}</mat-error>
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide_pw ? 'password' : 'text'" #passinput [formControl]="password_valid" required>
+      <button mat-icon-button matSuffix (click)="hide_pw = !hide_pw" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide_pw">
+        <mat-icon>{{hide_pw ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="password_valid.invalid">{{getErrorPassword()}}</mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Notes</mat-label>
+      <textarea #notesinput matInput></textarea>
+    </mat-form-field>
+  </p>
+  <button id="edit-btn" mat-raised-button (click)="edit(mobileinput.value,emailinput.value,passinput.value,notesinput.value)">EDIT</button>
+</div>

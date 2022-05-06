@@ -1,0 +1,54 @@
+* {
+  padding: 10px;
+}
+h1 {
+  color: #768DA3;
+  font-weight: bolder;
+  font-size: 34pt;
+}
+h2 {
+  font-size: 14pt;
+  color: #071440;
+}
+h3 {
+  font-size: 12pt;
+  color: #777E96;
+}
+img {
+  height: 56px;
+  width: 56px;
+}
+.circular--square {
+  border-radius: 50%;
+}
+.sign-out {
+  color: red;
+}
+.sign-out h2 {
+  color: red;
+}
+.mat-transparent {
+  background-color: transparent;
+  transition: all 0.1s linear;
+}
+.mat-transparent:hover {
+  background-color: lightgray;
+}
+.mat-red {
+  color: red;
+  background-color: transparent;
+  transition: all 0.1s linear;
+}
+.mat-red:hover {
+  color: #FFE6E6;
+}
+/*Color Toggle*/
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: #429F78;
+}
+:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: white;
+}
+#settings-btn {
+  margin-left: 73%;
+}

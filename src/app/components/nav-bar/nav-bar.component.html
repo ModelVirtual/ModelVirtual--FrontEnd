@@ -1,0 +1,17 @@
+<mat-card class="connections">
+  <div>
+    <strong><p>9:24</p></strong>
+  </div>
+  <div class="icon_connection">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">signal_cellular_alt</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example home icon">wifi</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example home icon">battery_full</mat-icon>
+  </div>
+</mat-card>
+<mat-card class="head">
+  <mat-icon [routerLink]="'/home'" aria-hidden="false" aria-label="Example home icon" class="icon">home</mat-icon>
+  <mat-icon aria-hidden="false" aria-label="Example done icon" class="icon">qr_code</mat-icon>
+  <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">search</mat-icon>
+  <mat-icon [routerLink]="'/favorites'" aria-hidden="false" aria-label="Example home icon" class="icon">favorite</mat-icon>
+  <a href="/account/{{userData.id}}"><img src="assets/avatar.png" alt="" ></a>
+</mat-card>

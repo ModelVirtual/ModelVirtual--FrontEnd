@@ -1,0 +1,38 @@
+.img_content img{
+  width: 90px;
+  padding: 10px;
+  height: 120px;
+}
+.img_content{
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+}
+.see_more{
+  margin-left: 25px;
+   padding-bottom: 25px;
+}
+.use_qr_code{
+  text-align: center;
+  padding: 15px 0;
+}
+.use_qr_code h1{
+  font-size: 19px;
+  font-weight: 400;
+}
+.use_qr_code .inform{
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.use_qr_code .inform p{
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+.use_qr_code .inform img{
+  width: 100px;
+  margin: auto;
+}

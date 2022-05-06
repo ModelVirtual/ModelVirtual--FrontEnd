@@ -1,0 +1,25 @@
+.title-and-filter {
+  padding: 15px;
+}
+.title-and-filter h1 {
+  font-size: 18pt;
+  text-align: center;
+}
+.title-and-filter h2 {
+  color: #8B8B8B;
+  font-size: 12pt;
+  text-align: right;
+  font-weight: lighter;
+}
+.mat-red {
+  color: red;
+}
+
+.example-card{
+  width: 200px;
+}
+.example-card img{
+  width: 75%;
+  margin: auto;
+  height: 200px;
+}
