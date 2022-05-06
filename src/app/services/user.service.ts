@@ -24,10 +24,10 @@ export class UserService {
   loginByEmail(form: Users):Observable<ResponseInterface>{
     return this.http.post<ResponseInterface>(this.apiURL, form);
   }
-  getUsers():Observable<Users[]>{
-    return this.http.get<Users[]>(this.apiURL);
+  getUsers():Observable<Product[]>{
+    return this.http.get<Product[]>(this.apiURL);
   }
-  getUserById(id:number) {
+  getProductById(id:number) {
     return this.users$.pipe(map(product=>product.find(p=>p.id===id)));
   }
   create(item: any): Observable<Product>{

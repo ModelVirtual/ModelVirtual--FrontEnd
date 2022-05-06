@@ -20,19 +20,22 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatMenuModule} from "@angular/material/menu";
 import { EditPersonalDataComponent } from './components/edit-personal-data/edit-personal-data.component';
-import { AddedFavoritesDialogComponent } from './components/added-favorites-dialog/added-favorites-dialog.component';
+import {DeletedFavoritesDialogComponent} from './components/deleted-favorites-dialog/deleted-favorites-dialog.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import {ProductsComponent} from "./components/products/products.component";
 import {ProductDetailsComponent} from "./components/product-details/product-details.component";
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {ProductService} from "./services/product.service";
+import { AddedFavoritesDialogComponent } from './components/added-favorites-dialog/added-favorites-dialog.component';
+import { IsLoginComponent } from './components/is-login/is-login.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: '', component: LoginComponent },
   { path: 'forgotYourPassword', component: ForgotYourPasswordComponent},
-  { path: 'home', component: HomeComponent},
+  { path: 'home/:id', component: HomeComponent},
   { path: 'account', component: AccountComponent},
   { path: 'account/edit-data', component: EditPersonalDataComponent},
   { path: 'product', component: ProductsComponent},
@@ -50,17 +53,15 @@ const routes: Routes = [
     NavBarComponent,
     AccountComponent,
     EditPersonalDataComponent,
-    AddedFavoritesDialogComponent,
+    DeletedFavoritesDialogComponent,
     ProductsComponent,
-
-
     ProductDetailsComponent,
-
-    FavoritesComponent
+    FavoritesComponent,
+     AddedFavoritesDialogComponent,
+     IsLoginComponent
   ],
   imports: [
     BrowserModule,
-
     MatDividerModule,
     MatIconModule,
     BrowserAnimationsModule,
@@ -77,7 +78,7 @@ const routes: Routes = [
     MatMenuModule,
     MatGridListModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

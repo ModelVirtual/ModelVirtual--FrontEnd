@@ -4,7 +4,7 @@
     <mat-card class="example-card">
       <mat-card-header>
         <strong><mat-card-subtitle>{{data.name}}</mat-card-subtitle></strong>
-        <mat-icon>favorite_border</mat-icon>
+        <mat-icon (click)="addToFavorites(data.id)">favorite_border</mat-icon>
       </mat-card-header>
 
       <a href="product-details/{{data.id}}">
