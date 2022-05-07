@@ -81,6 +81,19 @@
   ],
   "favorites": [
     {
+      "id": 4,
+      "name": "Vestido camisero de lana",
+      "price": 1500,
+      "brand": "Gucci",
+      "image": "https://i.ibb.co/KmcF40J/ID4.jpg",
+      "size": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ]
+    },
+    {
       "id": 1,
       "name": "Winter collection complete set",
       "price": 3400,
