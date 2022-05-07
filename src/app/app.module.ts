@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import  {MatDividerModule } from "@angular/material/divider";
+import { MatDividerModule } from "@angular/material/divider";
 import { MatIconModule } from "@angular/material/icon";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,7 +18,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AccountComponent } from './components/account/account.component';
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatDialogModule } from "@angular/material/dialog";
-import { MatMenuModule} from "@angular/material/menu";
+import { MatMenuModule } from "@angular/material/menu";
 import { EditPersonalDataComponent } from './components/edit-personal-data/edit-personal-data.component';
 import { DeletedFavoritesDialogComponent } from './components/deleted-favorites-dialog/deleted-favorites-dialog.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
@@ -31,18 +31,20 @@ import { ProductService } from "./services/product.service";
 import { AddedFavoritesDialogComponent } from './components/added-favorites-dialog/added-favorites-dialog.component';
 import { IsLoginComponent } from './components/is-login/is-login.component';
 import { ShoplistComponent } from "./components/shoplist/shoplist.component";
+import { QrcodeComponent } from './components/qrcode/qrcode.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: '', component: LoginComponent },
-  { path: 'forgotYourPassword', component: ForgotYourPasswordComponent },
-  { path: 'home/:id', component: HomeComponent },
-  { path: 'account/:id', component: AccountComponent },
-  { path: 'account/edit-data/:id', component: EditPersonalDataComponent },
-  { path: 'product/:id', component: ProductsComponent },
-  { path: 'product-details/:id',component:ProductDetailsComponent },
-  { path: 'favorites', component: FavoritesComponent },
-  { path: 'shoplist', component: ShoplistComponent}
+  { path: 'forgotYourPassword', component: ForgotYourPasswordComponent},
+  { path: 'home/:id', component: HomeComponent},
+  { path: 'account/:id', component: AccountComponent},
+  { path: 'account/edit-data/:id', component: EditPersonalDataComponent},
+  { path: 'product/:id', component: ProductsComponent},
+  { path: 'product-details/:id',component:ProductDetailsComponent},
+  { path: 'favorites/:id', component: FavoritesComponent},
+  { path: 'shoplist/:id', component: ShoplistComponent},
+  { path: 'qrcode/:id', component: QrcodeComponent},
 ];
 
 @NgModule({
@@ -60,8 +62,9 @@ const routes: Routes = [
     ProductDetailsComponent,
     FavoritesComponent,
     AddedFavoritesDialogComponent,
+    ShoplistComponent,
     IsLoginComponent,
-    ShoplistComponent
+    QrcodeComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,8 @@ const routes: Routes = [
     MatCardModule,
     HttpClientModule,
     MatMenuModule,
-    MatGridListModule
+
+    MatGridListModule,
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
