@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatIconModule} from "@angular/material/icon";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,8 +20,15 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatMenuModule} from "@angular/material/menu";
 import { EditPersonalDataComponent } from './components/edit-personal-data/edit-personal-data.component';
-import { AddedFavoritesDialogComponent } from './components/added-favorites-dialog/added-favorites-dialog.component';
+import {DeletedFavoritesDialogComponent} from './components/deleted-favorites-dialog/deleted-favorites-dialog.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import {ProductsComponent} from "./components/products/products.component";
+import {ProductDetailsComponent} from "./components/product-details/product-details.component";
+import {HttpClientModule} from "@angular/common/http";
+import {MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {ProductService} from "./services/product.service";
+import { AddedFavoritesDialogComponent } from './components/added-favorites-dialog/added-favorites-dialog.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -31,6 +37,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'account', component: AccountComponent},
   { path: 'account/edit-data', component: EditPersonalDataComponent},
+  { path: 'product', component: ProductsComponent},
+  {path:'product-details/:id',component:ProductDetailsComponent},
   { path: 'favorites', component: FavoritesComponent}
 ];
 
@@ -44,12 +52,18 @@ const routes: Routes = [
     NavBarComponent,
     AccountComponent,
     EditPersonalDataComponent,
-    AddedFavoritesDialogComponent,
-    FavoritesComponent
+    DeletedFavoritesDialogComponent,
+    ProductsComponent,
+
+
+    ProductDetailsComponent,
+
+    FavoritesComponent,
+     AddedFavoritesDialogComponent
   ],
   imports: [
     BrowserModule,
-    MatCardModule,
+
     MatDividerModule,
     MatIconModule,
     BrowserAnimationsModule,
@@ -61,9 +75,12 @@ const routes: Routes = [
     MatSlideToggleModule,
     MatDialogModule,
     FormsModule,
-    MatMenuModule
+    MatCardModule,
+    HttpClientModule,
+    MatMenuModule,
+    MatGridListModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
