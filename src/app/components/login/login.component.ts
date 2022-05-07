@@ -14,6 +14,31 @@ export class LoginComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
   ngOnInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.getAllUsers();
+  }
+  getAllUsers(): void{
+    this.userService.getUsers().subscribe((response: any) => {
+      this.dataSource.data = response;
+    })
+  }
+  InsertUser(form: any): void{
+    let happen = false;
+    let id = 0
+    this.dataSource.data.map(response => {
+      if(response.email === form.email){
+        if(response.password === form.password){
+          happen = true;
+          id = response.id;
+        }
+      }
+    });
+    if(happen !== false){
+      this.router.navigate([`home/`+id]).then();
+    }
+    else{
+      const dialogRef = this.dialog.open(IsLoginComponent);
+    }
   }
 
 }

@@ -79,5 +79,84 @@
       ]
     }
   ],
+  "favorites": [
+    {
+      "id": 4,
+      "name": "Vestido camisero de lana",
+      "price": 1500,
+      "brand": "Gucci",
+      "image": "https://i.ibb.co/KmcF40J/ID4.jpg",
+      "size": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Winter collection complete set",
+      "price": 3400,
+      "brand": "Gucci",
+      "image": "https://i.ibb.co/GVTfPKg/ID1.jpg",
+      "size": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Camiseta Gucci Firenze 1921 de algodón",
+      "price": 390,
+      "brand": "Gucci",
+      "image": "https://i.ibb.co/Tcgffbt/ID2.jpg",
+      "size": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Diego",
+      "lastName": "Porta",
+      "email": "diegoporta@gmail.com",
+      "password": "123",
+      "ProfileImage": "",
+      "year": 18
+    },
+    {
+      "id": 2,
+      "firstName": "Miguel",
+      "lastName": "Mau",
+      "email": "miguelM@gmail.com",
+      "password": "12345",
+      "ProfileImage": "",
+      "year": 18
+    },
+    {
+      "year": 0,
+      "ProfileImage": "",
+      "email": "u202019287@upc.edu.pe",
+      "firstName": "Diego",
+      "lastName": "Porta Ñaña",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "year": 0,
+      "ProfileImage": "",
+      "email": "LiTang@gmail.com",
+      "firstName": "luis",
+      "lastName": "Li Tang",
+      "password": "rayito123",
+      "id": 4
+    }
+  ]
   "favorites": []
 }
