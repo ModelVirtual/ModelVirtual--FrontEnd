@@ -45,6 +45,9 @@ const routes: Routes = [
   { path: 'favorites/:id', component: FavoritesComponent},
   { path: 'shoplist/:id', component: ShoplistComponent},
   { path: 'qrcode/:id', component: QrcodeComponent},
+
+  {path:'product-details/:id',component:ProductDetailsComponent},
+  { path: 'favorites/:id', component: FavoritesComponent}
 ];
 
 @NgModule({
