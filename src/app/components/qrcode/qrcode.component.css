@@ -1,0 +1,61 @@
+.title-and-filter {
+  padding: 15px;
+}
+.title-and-filter h1 {
+  font-size: 18pt;
+  text-align: center;
+}
+.title-and-filter h2 {
+  color: #8B8B8B;
+  font-size: 12pt;
+  text-align: right;
+  font-weight: lighter;
+}
+.mat-red {
+  color: red;
+}
+
+.example-card{
+  width: 200px;
+}
+.example-card img{
+  width: 75%;
+  margin: auto;
+  height: 200px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+img{
+  width: 100%;
+
+}
+
+.use_qr_code h1{
+  font-size: 19px;
+  font-weight: 400;
+}
+.use_qr_code .inform{
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.use_qr_code .inform p{
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+.use_qr_code .inform img{
+  width: 100px;
+  margin: auto;
+}
+.use_qr_code{
+  text-align: center;
+  padding: 15px 0;
+}
