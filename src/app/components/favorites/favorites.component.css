@@ -1,11 +1,11 @@
-* {
+.title-and-filter {
   padding: 15px;
 }
-h1 {
+.title-and-filter h1 {
   font-size: 18pt;
   text-align: center;
 }
-h2 {
+.title-and-filter h2 {
   color: #8B8B8B;
   font-size: 12pt;
   text-align: right;
@@ -14,9 +14,12 @@ h2 {
 .mat-red {
   color: red;
 }
-img {
-  width: 130px;
+
+.example-card{
+  width: 200px;
 }
-.heart-right {
-  margin-left: 67%;
+.example-card img{
+  width: 75%;
+  margin: auto;
+  height: 200px;
 }
