@@ -1,7 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, NgForm, Validators} from "@angular/forms";
-import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
 import {MyErrorStateMatcher} from "../functions/email";
 import {UserService} from "../../services/user.service";
 import {Users} from "../../interfaces/user.interface";
