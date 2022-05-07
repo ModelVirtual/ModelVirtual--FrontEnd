@@ -30,7 +30,12 @@ import { MatGridListModule } from "@angular/material/grid-list";
 import { ProductService } from "./services/product.service";
 import { AddedFavoritesDialogComponent } from './components/added-favorites-dialog/added-favorites-dialog.component';
 import { IsLoginComponent } from './components/is-login/is-login.component';
+
+import {ShoplistComponent} from "./components/shoplist/shoplist.component";
+import { ComentsBoxComponent } from './components/coments-box/coments-box.component';
+
 import { ShoplistComponent } from "./components/shoplist/shoplist.component";
+
 import { QrcodeComponent } from './components/qrcode/qrcode.component';
 
 const routes: Routes = [
@@ -47,7 +52,13 @@ const routes: Routes = [
   { path: 'qrcode/:id', component: QrcodeComponent},
 
   {path:'product-details/:id',component:ProductDetailsComponent},
+
+  { path: 'favorites/:id', component: FavoritesComponent},
+  { path: 'qrcode/:id', component: QrcodeComponent},
+  { path: 'shoplist/:id', component: ShoplistComponent},
+
   { path: 'favorites/:id', component: FavoritesComponent}
+
 ];
 
 @NgModule({
@@ -64,9 +75,16 @@ const routes: Routes = [
     ProductsComponent,
     ProductDetailsComponent,
     FavoritesComponent,
+
+     AddedFavoritesDialogComponent,
+    ShoplistComponent,
+     IsLoginComponent,
+     ComentsBoxComponent,
+
     AddedFavoritesDialogComponent,
     ShoplistComponent,
     IsLoginComponent,
+
     QrcodeComponent
   ],
   imports: [

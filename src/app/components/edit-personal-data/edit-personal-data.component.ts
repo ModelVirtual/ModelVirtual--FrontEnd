@@ -1,6 +1,11 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-
+import {UserService} from "../../services/user.service";
+import {Users} from "../../interfaces/user.interface";
+import {MatTableDataSource} from "@angular/material/table";
+import { EMPTY, Observable } from 'rxjs';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+import {catchError} from "rxjs/operators";
 @Component({
   selector: 'app-edit-personal-data',
   templateUrl: './edit-personal-data.component.html',
@@ -13,8 +18,15 @@ export class EditPersonalDataComponent implements OnInit {
   email_valid:FormControl;
   phone_valid:FormControl;
   password_valid:FormControl;
+  userData:Observable<Users>|undefined;
+  userId:number|undefined;
 
-  constructor() {
+
+
+  constructor(
+    private UserService:UserService,private route:ActivatedRoute
+  ) {
+
     this.users_name = "Carolina López";
     this.hide_pw = true;
     this.email_valid=new FormControl('',[Validators.required, Validators.email]);
@@ -23,6 +35,22 @@ export class EditPersonalDataComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.route.paramMap.subscribe(
+
+      params=>{// @ts-ignore
+        this.userId= +params.get('id');}
+    );
+
+
+    // @ts-ignore
+    this.userData=this.UserService.getUserByEmail(this.userId)
+      .pipe(// @ts-ignore
+        catchError(error => {
+          console.log('Error',error);
+          return EMPTY;
+        })
+      );
   }
   private isFormValid() : boolean {
     return !this.email_valid.hasError('required') &&
@@ -31,6 +59,7 @@ export class EditPersonalDataComponent implements OnInit {
       !this.phone_valid.hasError('minlength') &&
       !this.password_valid.hasError('required') &&
       !this.password_valid.hasError('minlength');
+
   }
   edit(mobile:string, mail:string, password:string, notes:string) : void {
     if (this.isFormValid()) {
