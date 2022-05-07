@@ -10,7 +10,7 @@ import {ResponseInterface} from "../interfaces/response.interface";
   providedIn: 'root'
 })
 export class UserService {
-  apiURL = 'http://localhost:3000/users'
+  apiURL = 'https://my-json-server.typicode.com/mauripradoch/json-modelvirtual/users'
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': "application/json"})

@@ -8,7 +8,7 @@ import {Product} from "../interfaces/product.interface";
   providedIn: 'root'
 })
 export class FavoriteService {
-  apiURL='http://localhost:3000/favorites';
+  apiURL='https://my-json-server.typicode.com/mauripradoch/json-modelvirtual/favorites';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
