@@ -41,6 +41,7 @@ export class ProductsComponent implements OnInit {
       this.dataSource.data = response;
       console.log(this.dataSource.data);
     });
+    console.log(this.dataSource.data);
   }
   private isAddedToFavorites(id: number): boolean {
     let i:number=0;

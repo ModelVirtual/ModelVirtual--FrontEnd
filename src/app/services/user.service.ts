@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import {Observable, throwError} from "rxjs";
 import {Users} from "../interfaces/user.interface";
-import {map, retry, shareReplay} from "rxjs/operators";
+import {catchError, map, retry, shareReplay} from "rxjs/operators";
 import {Product} from "../interfaces/product.interface";
 import {ResponseInterface} from "../interfaces/response.interface";
 
@@ -18,17 +18,28 @@ export class UserService {
   constructor(private  http: HttpClient) { }
   users$=this.getUsers().pipe(shareReplay(1));
 
-  getAll():Observable<Product>{
-    return this.http.get<Product>(this.apiURL, this.httpOptions)
-  }
-  loginByEmail(form: Users):Observable<ResponseInterface>{
-    return this.http.post<ResponseInterface>(this.apiURL, form);
-  }
   getUsers():Observable<Users[]>{
-    return this.http.get<Users[]>(this.apiURL);
+    return this.http.get<Users[]>(this.apiURL, this.httpOptions);
   }
   getUserById(id:number) {
     return this.users$.pipe(map(product=>product.find(p=>p.id===id)));
+  }
+  getUserByEmail(email: string) {
+    return this.users$.pipe(map(product=>product.find(p=>p.email===email)));
+  }
+  update(id: any, item: any): Observable<Users> {
+    return this.http.put<Users>(`${this.apiURL}/${id}`, JSON.stringify(item), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+  handleError(error:HttpErrorResponse) {
+    if(error.error instanceof ErrorEvent) {
+      console.log(`Error ocurred: ${error.error.message}`);
+    } else {
+      console.error(`Fake backend returned: ${error.status}, body was ${error.error}`);
+    }
+    return throwError(() => new Error('Something happened with request, please try later.'));
   }
   create(item: any): Observable<Product>{
     return this.http.post<Product>(this.apiURL, JSON.stringify(item), this.httpOptions).

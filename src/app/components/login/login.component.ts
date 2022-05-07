@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     this.getAllUsers();
   }
   getAllUsers(): void{
-    this.userService.getAll().subscribe((response: any) => {
+    this.userService.getUsers().subscribe((response: any) => {
       this.dataSource.data = response;
     })
   }
@@ -57,9 +57,6 @@ export class LoginComponent implements OnInit {
     this.dataSource.data.map(response => {
       if(response.email === form.email){
         if(response.password === form.password){
-          //this.id = response.id;
-          //const dialogRef=this.dialog.open(IsLoginComponent);
-          //console.log("diego");
           happen = true;
           id = response.id;
         }
