@@ -21,6 +21,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatMenuModule} from "@angular/material/menu";
 import { EditPersonalDataComponent } from './components/edit-personal-data/edit-personal-data.component';
+import { AddedFavoritesDialogComponent } from './components/added-favorites-dialog/added-favorites-dialog.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ const routes: Routes = [
     NavBarComponent,
     AccountComponent,
     EditPersonalDataComponent,
+    AddedFavoritesDialogComponent,
     FavoritesComponent
   ],
   imports: [

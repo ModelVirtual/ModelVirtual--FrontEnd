@@ -1,1 +1,48 @@
 <app-nav-bar [style.padding]="'0px'"></app-nav-bar>
+<div>
+  <h1>YOUR <br> FAVORITES</h1>
+  <h2>
+    {{filtertext}}
+    <button mat-icon-button [mat-menu-trigger-for]="filtermenu" >
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+  </h2>
+  <mat-menu #filtermenu="matMenu">
+    <button mat-menu-item (click)="filterLastVisit()">
+      <span>Last visit</span>
+    </button>
+    <button mat-menu-item (click)="filterLastWeek()">
+      <span>Last week</span>
+    </button>
+    <button mat-menu-item (click)="filterLastMonth()">
+      <span>Last month</span>
+    </button>
+    <button mat-menu-item (click)="filterAll()">
+      <span>All</span>
+    </button>
+  </mat-menu>
+  <button mat-icon-button color="red" (click)="deleteFavorite()">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button class="heart-right" mat-icon-button color="red" (click)="deleteFavorite()">
+    <mat-icon>favorite</mat-icon>
+  </button> <br>
+  <img src="assets/wear1.png">
+  <img src="assets/wear2.png"> <br>
+  <button mat-icon-button color="red" (click)="deleteFavorite()">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button class="heart-right" mat-icon-button color="red" (click)="deleteFavorite()">
+    <mat-icon>favorite</mat-icon>
+  </button> <br>
+  <img src="assets/wear3.png">
+  <img src="assets/wear4.png"> <br>
+  <button mat-icon-button color="red" (click)="deleteFavorite()">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button class="heart-right" mat-icon-button color="red" (click)="deleteFavorite()">
+    <mat-icon>favorite</mat-icon>
+  </button> <br>
+  <img src="assets/wear5.png">
+  <img src="assets/wear6.png">
+</div>
