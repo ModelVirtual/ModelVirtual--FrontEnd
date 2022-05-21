@@ -7,12 +7,9 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatIconModule} from "@angular/material/icon";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
-import { LoginComponent } from './components/login/login.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
-import { RegisterComponent } from './components/register/register.component';
-import { ForgotYourPasswordComponent } from './components/forgot-your-password/forgot-your-password.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AccountComponent } from './components/account/account.component';
@@ -33,27 +30,29 @@ import { IsLoginComponent } from './components/is-login/is-login.component';
 import {ShoplistComponent} from "./components/shoplist/shoplist.component";
 import { ComentsBoxComponent } from './components/coments-box/coments-box.component';
 import { QrcodeComponent } from './components/qrcode/qrcode.component';
+import { ForgotPasswordComponent } from './users/pages/forgot-password/forgot-password.component';
+import { SignInComponent } from './users/pages/sign-in/sign-in.component';
+import { SignUpComponent } from './users/pages/sign-up/sign-up.component';
+import { IsLognupComponent } from './components/is-lognup/is-lognup.component';
 
 const routes: Routes = [
-  { path: 'register', component: RegisterComponent },
-  { path: '', component: LoginComponent },
-  { path: 'forgotYourPassword', component: ForgotYourPasswordComponent},
-  { path: 'home/:id', component: HomeComponent},
-  { path: 'account/:id', component: AccountComponent},
-  { path: 'account/edit-data/:id', component: EditPersonalDataComponent},
+  { path: 'register', component: SignUpComponent },
+  { path: '', component: SignInComponent },
+  { path: 'forgotYourPassword', component: ForgotPasswordComponent},
+  { path: 'home', component: HomeComponent},
+  { path: 'home/account', component: AccountComponent},
+  { path: 'home/account/edit-data', component: EditPersonalDataComponent},
   { path: 'product/:id', component: ProductsComponent},
-  {path:'product-details/:id',component:ProductDetailsComponent},
-  { path: 'favorites/:id', component: FavoritesComponent},
-  { path: 'qrcode/:id', component: QrcodeComponent},
-  { path: 'shoplist/:id', component: ShoplistComponent},
+  {path:'product-details',component:ProductDetailsComponent},
+  { path: 'favorites', component: FavoritesComponent},
+  { path: 'qrcode', component: QrcodeComponent},
+  { path: 'shoplist', component: ShoplistComponent},
 ];
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    ForgotYourPasswordComponent,
     HomeComponent,
     NavBarComponent,
     AccountComponent,
@@ -66,7 +65,11 @@ const routes: Routes = [
     ShoplistComponent,
      IsLoginComponent,
      ComentsBoxComponent,
-    QrcodeComponent
+    QrcodeComponent,
+    ForgotPasswordComponent,
+    SignInComponent,
+    SignUpComponent,
+    IsLognupComponent
   ],
   imports: [
     BrowserModule,
