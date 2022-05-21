@@ -109,55 +109,34 @@
   ],
   "users": [
     {
-      "id": 1,
+      "email": "17.dotero.17@gmail.com",
+      "password": "$2a$10$T9f5Cp6KHNQbteO9yg5HU.nsIrrLZSMY12Gopf0JqwzpztYdleOgS",
       "firstName": "Diego",
       "lastName": "Porta",
-      "email": "diegoporta@gmail.com",
-      "password": "123",
       "ProfileImage": "",
-
-      "year": 18
+      "year": "",
+      "id": 1
     },
     {
-      "id": 2,
-      "firstName": "Miguel",
-      "lastName": "Mau",
-      "email": "miguelM@gmail.com",
-      "password": "12345",
-      "ProfileImage": "",
-      "year": 18
-    },
-    {
-      "year": 0,
-      "ProfileImage": "",
-      "email": "u202019287@upc.edu.pe",
+      "email": "17.dotero@gmail.com",
+      "password": "$2a$10$ZkzyajjsSMDHHQ3n9pxcseF/1X/nTi.ZWY5fFxQ3z3e9x0qeB3FVa",
       "firstName": "Diego",
-      "lastName": "Porta Ñaña",
-      "password": "123456",
-      "id": 3
-    },
-    {
-      "year": 0,
+      "lastName": "Porta",
       "ProfileImage": "",
-      "email": "LiTang@gmail.com",
-      "firstName": "luis",
-      "lastName": "Li Tang",
-      "password": "rayito123",
-      "id": 4
+      "year": "",
+      "id": 2
     }
   ],
   "comments": [
     {
       "id": 1,
-      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales ut orci scelerisque fermentum. Fusce aliquam malesuada finibus. Aliquam hendrerit viverra ligula vel placerat. Duis laoreet tortor nisl, ac rutrum quam eleifend vel. Integer ullamcorper vulputate nisl at condimentum. Curabitur felis ante, pretium a tortor non, elementum pulvinar nunc. Nulla eu egestas eros.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales ut orci scelerisque fermentum. Fusce aliquam malesuada finibus. Aliquam hendrerit viverra ligula vel placerat. Duis laoreet tortor nisl, ac rutrum quam eleifend vel. Integer ullamcorper vulputate nisl at condimentum. Curabitur felis ante, pretium a tortor non, elementum pulvinar nunc. Nulla eu egestas eros.",
       "userId": 2
-
     },
     {
       "id": 2,
       "description": "Donec et nulla auctor, fringilla velit sit amet, ullamcorper nibh. Nullam eget cursus erat. Praesent non ultrices mauris. Nullam eu urna ut mi luctus sagittis. Nullam fringilla odio non arcu vulputate elementum. Sed ac magna nec mi varius accumsan ut vel nulla. Phasellus posuere leo id imperdiet tristique.",
       "userId": 2
-
     },
     {
       "id": 3,

@@ -1,0 +1,39 @@
+<div class="logo">
+  <img src="https://i.ibb.co/h9sV0Fx/Logo.png" alt="">
+</div>
+<div class="container">
+  <form #userForm = 'ngForm' [formGroup]="loginForm" (ngSubmit)="insertUser(loginForm.value)">
+    <mat-form-field class="example-full-width">
+      <mat-label>First name</mat-label>
+      <input id="valueId" matInput formControlName="firstName">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" >
+      <mat-label>Last Name</mat-label>
+      <input matInput name="last" formControlName="lastName">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput name="email" formControlName="email" required
+             placeholder="user@domain.com">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <mat-error *ngIf="email.errors?.['email']">You need to enter an email</mat-error>
+        <mat-error *ngIf="email.errors?.['required']">email is required</mat-error>
+      </div>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" >
+      <mat-label>Password</mat-label>
+      <input type="password" matInput #message maxlength="25" name="password" formControlName="password">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" >
+      <mat-label>Confirm Password</mat-label>
+      <input type="password" matInput #message maxlength="25" name="password">
+    </mat-form-field>
+    <div class="button">
+      <button mat-raised-button>Register</button>
+    </div>
+  </form>
+</div>
+<div class="paragraph">
+  <p><a href="" class="lognin" style="text-decoration: none; color: #7C8DA3;">Login</a> to ModelVirtual now</p>
+  <a href="forgotYourPassword" class="forgot_password">I forgot my password</a>
+</div>
