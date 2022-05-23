@@ -34,6 +34,11 @@ import { ForgotPasswordComponent } from './users/pages/forgot-password/forgot-pa
 import { SignInComponent } from './users/pages/sign-in/sign-in.component';
 import { SignUpComponent } from './users/pages/sign-up/sign-up.component';
 import { IsLognupComponent } from './components/is-lognup/is-lognup.component';
+import {UserService} from "./services/user.service";
+import {FavoriteService} from "./services/favorite.service";
+import {ShopService} from "./services/shop.service";
+import {QRCodeModule} from "angularx-qrcode";
+import {NgQrScannerModule} from "angular2-qrscanner";
 
 const routes: Routes = [
   { path: 'register', component: SignUpComponent },
@@ -43,7 +48,7 @@ const routes: Routes = [
   { path: 'home/account', component: AccountComponent},
   { path: 'home/account/edit-data', component: EditPersonalDataComponent},
   { path: 'product/:id', component: ProductsComponent},
-  {path:'product-details',component:ProductDetailsComponent},
+  {path:'product-details/:id',component:ProductDetailsComponent},
   { path: 'favorites', component: FavoritesComponent},
   { path: 'qrcode', component: QrcodeComponent},
   { path: 'shoplist', component: ShoplistComponent},
@@ -87,10 +92,11 @@ const routes: Routes = [
     MatCardModule,
     HttpClientModule,
     MatMenuModule,
-
     MatGridListModule,
+    QRCodeModule,
+    NgQrScannerModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, UserService, FavoriteService, ShopService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,9 @@
 <mat-card class="connections">
   <div>
-    <strong><p>9:24</p></strong>
-  </div>
-  <div class="icon_connection">
-    <mat-icon aria-hidden="false" aria-label="Example home icon">signal_cellular_alt</mat-icon>
-    <mat-icon aria-hidden="false" aria-label="Example home icon">wifi</mat-icon>
-    <mat-icon aria-hidden="false" aria-label="Example home icon">battery_full</mat-icon>
+    <strong *ngIf="time.minute < 10; else elseTemplate"><p>{{time.hour}}:0{{time.minute}}</p></strong>
+    <ng-template #elseTemplate>
+      <strong ><p>{{time.hour}}:{{time.minute}}</p></strong>
+    </ng-template>
   </div>
 </mat-card>
 <mat-card class="head">

@@ -8,10 +8,16 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  public userData: any = {}
+  public userData: any = {};
+  time = {
+    hour:0,
+    minute:0
+  }
   constructor(private serviceUsers: UserService,
               private activeRoute: ActivatedRoute) {
-
+    let dateObj = new Date();
+    this.time.hour = dateObj.getHours();
+    this.time.minute = dateObj.getMinutes();
   }
   ngOnInit(): void {
 
