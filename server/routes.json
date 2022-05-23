@@ -1,5 +1,6 @@
 {
   "/api/v1/*": "/$1",
   "/sign-in": "/signin",
-  "/sign-up": "/signup"
+  "/sign-up": "/signup",
+  "/shops/:id/products": "/products?shopId=:id"
 }

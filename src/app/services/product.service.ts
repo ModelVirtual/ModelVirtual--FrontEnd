@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ProductService {
-  apiURL='https://my-json-server.typicode.com/mauripradoch/json-modelvirtual/products';
+  apiURL='http://localhost:3000/products';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }

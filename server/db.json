@@ -1,4 +1,26 @@
 {
+  "shops": [
+    {
+      "id": 1,
+      "name": "Nike",
+      "logoUrl": "https://d13xymm0hzzbsd.cloudfront.net/1/20210909/16312244820236.png"
+    },
+    {
+      "id": 2,
+      "name": "Adidas",
+      "logoUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/elcomercio/X6UYUZH4Q5AXVMKWW7SVEX37V4.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Zara",
+      "logoUrl": "https://as01.epimg.net/diarioas/imagenes/2021/11/23/actualidad/1637697885_146176_1637698333_noticia_normal_recorte1.jpg"
+    },
+    {
+      "id": 4,
+      "name": "H&M",
+      "logoUrl": "https://assets.turbologo.com/blog/es/2021/07/15062755/shutterstock_1784238500-958x575-1.jpg"
+    }
+  ],
   "products": [
     {
       "id": 1,
@@ -11,7 +33,8 @@
         "S",
         "M",
         "L"
-      ]
+      ],
+      "shopId": 1
     },
     {
       "id": 2,
@@ -24,7 +47,8 @@
         "S",
         "M",
         "L"
-      ]
+      ],
+      "shopId": 2
     },
     {
       "id": 3,
@@ -37,7 +61,8 @@
         "S",
         "M",
         "L"
-      ]
+      ],
+      "shopId": 3
     },
     {
       "id": 4,
@@ -50,7 +75,8 @@
         "S",
         "M",
         "L"
-      ]
+      ],
+      "shopId": 1
     },
     {
       "id": 5,
@@ -63,7 +89,8 @@
         "S",
         "M",
         "L"
-      ]
+      ],
+      "shopId": 4
     },
     {
       "id": 6,
@@ -76,7 +103,8 @@
         "S",
         "M",
         "L"
-      ]
+      ],
+      "shopId": 4
     }
   ],
   "favorites": [
@@ -91,7 +119,8 @@
         "S",
         "M",
         "L"
-      ]
+      ],
+      "shopId": 1
     },
     {
       "id": 2,
@@ -104,7 +133,8 @@
         "S",
         "M",
         "L"
-      ]
+      ],
+      "shopId": 2
     }
   ],
   "users": [
@@ -125,6 +155,16 @@
       "ProfileImage": "",
       "year": "",
       "id": 2
+    },
+    {
+      "email": "holiquetal@mailbest.com",
+      "password": "$2a$10$MG271nb1VeywXqQnzEeXQ.AMpE2WON9J7dzUS.KtGzgkWWVXELLjO",
+      "firstName": "Mauricio",
+      "lastName": "Prado",
+      "ProfileImage": "",
+      "year": "",
+      "confirmPassword": "",
+      "id": 3
     }
   ],
   "comments": [

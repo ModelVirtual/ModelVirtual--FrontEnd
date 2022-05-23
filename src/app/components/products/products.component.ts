@@ -1,13 +1,11 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Product} from "../../interfaces/product.interface";
-import {ProductService} from "../../services/product.service";
 import {MatTableDataSource} from "@angular/material/table";
-import {MatPaginator} from "@angular/material/paginator";
-import {NgForm} from "@angular/forms";
-import {MatSort} from "@angular/material/sort";
 import {FavoriteService} from "../../services/favorite.service";
 import {AddedFavoritesDialogComponent} from "../added-favorites-dialog/added-favorites-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {ActivatedRoute} from "@angular/router";
+import {ShopService} from "../../services/shop.service";
 
 @Component({
   selector: 'app-products',
@@ -19,25 +17,26 @@ export class ProductsComponent implements OnInit {
   productData:Product;
   dataSource:MatTableDataSource<any>
   displayedColumns: string[] = ['id', 'name', 'price', 'brand', 'image', 'size'];
-
-  @ViewChild(MatPaginator, {static: true})
-  paginator!: MatPaginator;
-  @ViewChild(MatSort)
-  sort!: MatSort;
-  @ViewChild('studentForm', {static: true})
-  studentForm!: NgForm;
-
-  constructor(private productService: ProductService, private favoriteService: FavoriteService, public dialog:MatDialog) {
+  shopId: number;
+  constructor(private favoriteService: FavoriteService, public dialog:MatDialog,
+              private route: ActivatedRoute, private shopService:ShopService) {
     this.productData = {} as Product;
     this.dataSource = new MatTableDataSource<any>();
+    this.shopId = -1;
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.getAllProducts();
+    this.getShopId();
+    this.getProductsByShopId();
   }
-  getAllProducts(): void{
-    this.productService.getAll().subscribe((response: any)=>{
+  private getShopId(): void {
+    this.route.paramMap.subscribe((params)=> {
+      // @ts-ignore
+      this.shopId = +params.get('id');
+    })
+  }
+  getProductsByShopId(): void {
+    this.shopService.getAllProductsById(this.shopId).subscribe((response: any)=>{
       this.dataSource.data = response;
       console.log(this.dataSource.data);
     });
@@ -60,8 +59,4 @@ export class ProductsComponent implements OnInit {
       const dialogRef=this.dialog.open(AddedFavoritesDialogComponent);
     });
   }
-
-
-
-
 }
