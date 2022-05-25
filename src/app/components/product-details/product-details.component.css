@@ -1,6 +1,5 @@
 .docs-example-viewer-body{
   margin: 8px;
-  padding-top: 10px;
 }
 .content{
   display: flex;
@@ -19,7 +18,10 @@ img{
 
 }
 .left-div{
-  max-width: 60%;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
 }
 .image-card{
   float:left ;

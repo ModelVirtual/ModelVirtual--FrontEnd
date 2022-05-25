@@ -1,1 +1,36 @@
-<p>coments-box works!</p>
+<div *ngIf="Comments$ | async as commas">
+    <div class="Comments-section">Comments</div>
+    <form [formGroup]="form" (ngSubmit)="sentComment()"  class="form-comment">
+        <div class="Comment-input">
+            <div class="im-profile">
+                <img  src="{{userDataCurrent.ProfileImage}}" alt="No image available">
+            </div>
+            <mat-form-field class="example-full-width" >
+                <mat-label>Leave a comment</mat-label>
+                <textarea class="Area-comment" formControlName="description" style="background-color: transparent" matInput placeholder="Ex. It makes me feel..."></textarea>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button class="but-send" type="submit" [disabled]="form.invalid">Send</button>
+        <button mat-raised-button (click)="cancelButton()" type="button" class="but-cancel">Cancel</button>
+    </form>
+    <div *ngFor="let item of commas">
+        <div *ngIf="getUserById(item.userId) | async as algo">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image" >
+                        <img class="imgPro" mat-card-image src="{{algo.ProfileImage}}" alt="No image available">
+                    </div>
+                    <mat-card-title>{{algo.firstName}}</mat-card-title>
+                    <mat-card-subtitle>{{item.Date}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="com-des">
+                    <p>{{item.description}}</p>
+                </mat-card-content>
+                    <button mat-button class="but-com">Like</button>
+                    <button mat-button class="but-com">Reply</button>
+            </mat-card>
+        </div>
+
+    </div>
+
+</div>
