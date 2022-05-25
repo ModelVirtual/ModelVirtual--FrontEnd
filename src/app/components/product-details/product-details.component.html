@@ -1,10 +1,9 @@
 <div class="docs-example-viewer-body" *ngIf="ProductDetails$ | async as book">
+  <mat-card class="Product-detail">
   <mat-card>
     <div class="content">
       <div class="left-div">
-        <mat-card-content class="image-card">
-          <img class="d-block w-100" mat-card-image src="{{book.image}}" alt="No image available">
-        </mat-card-content>
+          <img mat-card-image src="{{book.image}}" alt="No image available">
       </div>
       <div class="right-div">
         <mat-card-subtitle>{{book.brand}}</mat-card-subtitle>
@@ -16,3 +15,4 @@
     </div>
   </mat-card>
 </div>
+<app-coments-box></app-coments-box>

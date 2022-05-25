@@ -42,6 +42,7 @@ export class ProductDetailsComponent implements OnInit {
           return EMPTY;
         })
       );
+
     console.log(this.ProductDetails$)
   }
 

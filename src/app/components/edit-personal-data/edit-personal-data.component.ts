@@ -37,7 +37,6 @@ export class EditPersonalDataComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(
-
       params=>{// @ts-ignore
         this.userId= +params.get('id');}
     );
