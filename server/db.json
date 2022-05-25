@@ -19,13 +19,11 @@
       "id": 4,
       "name": "H&M",
       "logoUrl": "https://assets.turbologo.com/blog/es/2021/07/15062755/shutterstock_1784238500-958x575-1.jpg"
-
     },
     {
       "email": "holi@gmail.com",
       "password": "prueba123",
       "id": 5
-
     }
   ],
   "products": [
