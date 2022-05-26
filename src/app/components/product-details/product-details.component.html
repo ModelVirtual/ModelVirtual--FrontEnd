@@ -1,3 +1,5 @@
+<app-nav-bar [style.padding]="'0px'"></app-nav-bar>
+<h2 id="title-section">Product Details</h2>
 <div class="docs-example-viewer-body" *ngIf="ProductDetails$ | async as book">
   <mat-card class="Product-detail">
     <div class="content">
@@ -15,3 +17,4 @@
   </mat-card>
 </div>
 <app-coments-box></app-coments-box>
+<router-outlet></router-outlet>

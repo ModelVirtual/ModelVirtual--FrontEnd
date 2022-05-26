@@ -35,13 +35,9 @@ export class ProductDetailsComponent implements OnInit {
   getProductsDetails(){
     // @ts-ignore
     // @ts-ignore
-    this.ProductDetails$=this.productService.getProductById(this.productId)
-      .pipe(// @ts-ignore
-        catchError(error =>{
-          console.log('Error:',error);
-          return EMPTY;
-        })
-      );
+    this.ProductDetails$=this.productService.getProductById(this.productId);
+    this.ProductDetails$.subscribe(clientes =>  clientes);
+
 
     console.log(this.ProductDetails$)
   }

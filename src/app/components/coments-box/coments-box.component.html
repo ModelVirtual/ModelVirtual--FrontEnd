@@ -1,4 +1,4 @@
-<div *ngIf="Comments$ | async as commas">
+<div >
     <div class="Comments-section">Comments</div>
     <form [formGroup]="form" (ngSubmit)="sentComment()"  class="form-comment">
         <div class="Comment-input">
@@ -13,7 +13,7 @@
         <button mat-raised-button class="but-send" type="submit" [disabled]="form.invalid">Send</button>
         <button mat-raised-button (click)="cancelButton()" type="button" class="but-cancel">Cancel</button>
     </form>
-    <div *ngFor="let item of commas">
+    <div *ngFor="let item of arrayComments;let i=index">
         <div *ngIf="getUserById(item.userId) | async as algo">
             <mat-card class="example-card">
                 <mat-card-header>

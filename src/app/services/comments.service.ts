@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {shareReplay, map, retry, catchError} from 'rxjs/operators';
+import {shareReplay, map, retry, catchError, tap} from 'rxjs/operators';
 import {CommentInterface} from "../interfaces/comment.interface";
-import {Observable, throwError} from "rxjs";
+import {BehaviorSubject, Observable, Subject, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,8 @@ export class CommentsService {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
+  comment$=this.getComments().pipe(shareReplay(1));
+  private _refresh$=new Subject<void>();
 
   constructor(private  http: HttpClient) { }
 
@@ -24,7 +26,9 @@ export class CommentsService {
     return throwError(() => new Error('Something happened with request, please try later.'));
   }
 
-  comment$=this.getComments().pipe(shareReplay(1));
+  get refresh$(){
+    return this._refresh$;
+  }
 
   getComments():Observable<CommentInterface[]>{
     return this.http.get<CommentInterface[]>(this.apiURL);
@@ -36,10 +40,13 @@ export class CommentsService {
         catchError(this.handleError));
   }
   createComments(item:any):Observable<CommentInterface>{
-    return this.http.post<CommentInterface>(this.apiURL,JSON.stringify(item),this.httpOptions)
+    return this.http.post<CommentInterface>(this.apiURL, item)
         .pipe(
-            retry(2)
+            tap(()=>{
+              this._refresh$.next();
+            })
         );
+
   }
 
 
