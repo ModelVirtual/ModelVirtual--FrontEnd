@@ -25,7 +25,8 @@ export class ProductService {
   }
 
 
-  getProductById(id:number) {
+  getProductById(id:number):Observable<Product> {
+    // @ts-ignore
     return this.products$.pipe(map(product=>product.find(p=>p.id===id)));//(`${this.apiURL}?id=${id}`,this.httpOptions);
   }
 }

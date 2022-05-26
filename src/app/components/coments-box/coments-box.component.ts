@@ -1,12 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {EMPTY, Observable, Subject} from "rxjs";
+import {BehaviorSubject, EMPTY, Observable, Subject, Subscription} from "rxjs";
 import {CommentsService} from "../../services/comments.service";
 import {CommentInterface} from "../../interfaces/comment.interface";
 import {ActivatedRoute} from "@angular/router";
-import {catchError} from "rxjs/operators";
 import {UsersService} from "../../users/services/users.service";
 import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
-import {Users} from "../../interfaces/user.interface";
+import{Users} from "../../interfaces/user.interface";
 
 @Component({
   selector: 'app-coments-box',
@@ -15,15 +14,14 @@ import {Users} from "../../interfaces/user.interface";
 })
 export class ComentsBoxComponent implements OnInit {
   productId:number|undefined;
-  comments: CommentInterface[] | undefined;
-  Comments$:Observable<CommentInterface[]>|undefined;
+  //private Comments=new BehaviorSubject<CommentInterface[]>([]);
+  //Comments$=this.Comments.asObservable();
   userDataCurrent: any = {};
   hideButton:boolean=true;
   initialText:string='';
   CommentCurrent:CommentInterface|undefined;
-
-
   form!:FormGroup;
+  arrayComments:CommentInterface[]=[]
 
   constructor(
       private route:ActivatedRoute,
@@ -31,54 +29,57 @@ export class ComentsBoxComponent implements OnInit {
       private userService:UsersService,
       private fb:FormBuilder
   ) {
+      this.route.paramMap.subscribe(
+          params => {
+              // @ts-ignore
+              this.productId= +params.get('id');
+          }
+      );
+      this.form=this.fb.group({
+          description:[this.initialText,Validators.required],
+      });
 
   }
 
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(
-        params => {
-          // @ts-ignore
-          this.productId= +params.get('id');
-        }
-    );
-    this.getComments();
     this.getUser();
-    this.form=this.fb.group({
-        description:[this.initialText,Validators.required],
+    this.getComments();
+    this.commentService.refresh$.subscribe(response=>{
+        this.getComments();
+        console.log("FFFFFFFFFFFF");
+
     });
-
-
   }
   getComments(){
-    // @ts-ignore
-    // @ts-ignore
-      this.Comments$=this.commentService.getCommentsByProductId(this.productId).    // @ts-ignore
-    pipe(// @ts-ignore
-        catchError(error =>{
-          console.log('Error:',error);
-          return EMPTY;
-        })
-    );
-
+      // @ts-ignore
+      //this.Comments$=this.commentService.getCommentsByProductId(this.productId);
+      this.commentService.getCommentsByProductId(this.productId).subscribe(data => {
+          this.arrayComments=data;
+      });
   }
   getUserById(id:number){
       // @ts-ignore
       return this.userService.getUserById(id);
+
   }
   getUser(){
       // @ts-ignore
-      this.userDataCurrent = JSON.parse(this.userService.getCurrentUser())
-      console.log(this.userDataCurrent)
+      this.userDataCurrent = JSON.parse(this.userService.getCurrentUser());
+      console.log(this.userDataCurrent);
   }
   sentComment(){
       this.FillCommentCurrent();
-      this.commentService.createComments(this.CommentCurrent).subscribe((response: any) =>{
-          console.log(response);
-      });
+      // @ts-ignore
+      this.commentService.createComments(this.CommentCurrent).subscribe((response: any)=> {
+          // @ts-ignore
+          this.arrayComments.push(response);
+          console.log("exito");
+          this.form.reset();
 
-      this.form.reset();
+      });
   }
+
   FillCommentCurrent(){
       this.CommentCurrent={
           description: this.form.value.description,
@@ -93,7 +94,5 @@ export class ComentsBoxComponent implements OnInit {
       this.hideButton=false;
       this.form.reset();
   }
-
-
 
 }
