@@ -7,7 +7,7 @@
   <p>
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
-      <input #mobileinput matInput placeholder="Martin Irving" [formControl]="phone_valid" required>
+      <input #mobileinput matInput placeholder="Firstname" [formControl]="phone_valid" required>
       <mat-error *ngIf="phone_valid.invalid">{{getErrorPhone()}}</mat-error>
       <mat-icon matSuffix>account_box</mat-icon>
     </mat-form-field>
@@ -15,7 +15,7 @@
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Last Name</mat-label>
-      <input #mobileinput matInput placeholder="Rivera Torres" [formControl]="phone_valid" required>
+      <input #mobileinput matInput placeholder="Lastname" [formControl]="phone_valid" required>
       <mat-error *ngIf="phone_valid.invalid">{{getErrorPhone()}}</mat-error>
       <mat-icon matSuffix>account_circle</mat-icon>
     </mat-form-field>
