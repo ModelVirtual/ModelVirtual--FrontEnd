@@ -180,6 +180,26 @@
       "year": "",
       "confirmPassword": "",
       "id": 4
+    },
+    {
+      "email": "gerardo.caldasd@gmail.com",
+      "password": "Gerardo18",
+      "firstName": "holi",
+      "lastName": "boli",
+      "ProfileImage": "https://i.ibb.co/p0nVg0n/avatar4.jpg",
+      "year": "23",
+      "confirmPassword": "Gerardo18",
+      "id": 5
+    },
+    {
+      "email": "gerard651@hotmail.com",
+      "password": "$2a$10$ebrnZqMldSHNbZPtmaXWpuvf5Y1GBbsUxOmxYelie5aifv2.z4qxq",
+      "firstName": "Gerardo Gabriel",
+      "lastName": "Caldas Díaz",
+      "ProfileImage": "",
+      "year": "",
+      "confirmPassword": "",
+      "id": 6
     }
   ],
   "comments": [
