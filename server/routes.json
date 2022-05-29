@@ -1,0 +1,7 @@
+{
+  "/api/v1/*": "/$1",
+  "/sign-in": "/signin",
+  "/sign-up": "/signup",
+  "/shops/:id/products": "/products?shopId=:id",
+  "/favorites/user/:id": "/favorites?userId=:id"
+}

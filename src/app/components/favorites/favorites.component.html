@@ -31,8 +31,8 @@
             <strong><mat-card-subtitle>{{data.name}}</mat-card-subtitle></strong>
             <mat-icon color="red" (click)="deleteFavorite(data.id)">favorite</mat-icon>
           </mat-card-header>
-          <a href="product-details/{{data.id}}">
-            <img mat-card-image src="{{data.image}}" alt="Photo of a Shiba Inu">
+          <a href="product-details/{{data.productId}}">
+            <img mat-card-image src="{{data.image}}" alt="Favorite pic">
           </a>
           <mat-card-content>
             <p>{{data.price}}</p>

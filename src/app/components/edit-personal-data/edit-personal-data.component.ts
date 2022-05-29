@@ -2,10 +2,6 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
 import {Users} from "../../interfaces/user.interface";
-import {MatTableDataSource} from "@angular/material/table";
-import { EMPTY, Observable } from 'rxjs';
-import {Router, ActivatedRoute, Params} from '@angular/router';
-import {catchError} from "rxjs/operators";
 @Component({
   selector: 'app-edit-personal-data',
   templateUrl: './edit-personal-data.component.html',
@@ -13,63 +9,64 @@ import {catchError} from "rxjs/operators";
 })
 export class EditPersonalDataComponent implements OnInit {
 
-  users_name: string;
   hide_pw: boolean;
   email_valid:FormControl;
   phone_valid:FormControl;
   password_valid:FormControl;
-  userData:Observable<Users>|undefined;
-  userId:number|undefined;
+  first_name_valid:FormControl;
+  last_name_valid:FormControl;
+  userData: Users;
+  userId:number;
+  userFullName: string;
 
 
 
   constructor(
-    private UserService:UserService,private route:ActivatedRoute
+    private userService:UserService
   ) {
-
-    this.users_name = "Carolina López";
     this.hide_pw = true;
+    this.userId = -1;
     this.email_valid=new FormControl('',[Validators.required, Validators.email]);
+    this.first_name_valid = new FormControl('', [Validators.required]);
+    this.last_name_valid = new FormControl('', [Validators.required]);
     this.phone_valid=new FormControl('', [Validators.required, Validators.minLength(6)]);
     this.password_valid=new FormControl('',[Validators.required, Validators.minLength(8)]);
+    this.userData = {} as Users;
+    this.userFullName = "";
   }
 
   ngOnInit(): void {
-
-    this.route.paramMap.subscribe(
-
-      params=>{// @ts-ignore
-        this.userId= +params.get('id');}
-    );
-
-
-    // @ts-ignore
-    this.userData=this.UserService.getUserByEmail(this.userId)
-      .pipe(// @ts-ignore
-        catchError(error => {
-          console.log('Error',error);
-          return EMPTY;
-        })
-      );
+    this.getUserId();
+    this.getUserData();
   }
   private isFormValid() : boolean {
     return !this.email_valid.hasError('required') &&
       !this.email_valid.hasError('email') &&
       !this.phone_valid.hasError('required') &&
       !this.phone_valid.hasError('minlength') &&
-      !this.password_valid.hasError('required') &&
-      !this.password_valid.hasError('minlength');
+      //!this.password_valid.hasError('required') &&
+      //!this.password_valid.hasError('minlength') &&
+      !this.first_name_valid.hasError('required') &&
+      !this.last_name_valid.hasError('required');
 
   }
-  edit(mobile:string, mail:string, password:string, notes:string) : void {
+  private getUserId(): void {
+    // @ts-ignore
+      this.userId = +sessionStorage.getItem('userId');
+  }
+  private getUserData() : void {
+    this.userService.getUserById(this.userId).subscribe((response: any) => {
+      this.userData = response;
+      this.userData.password = "";
+      this.userFullName = response.firstName + ' ' + response.lastName;
+      console.log(response);
+    })
+  }
+  edit() : void {
     if (this.isFormValid()) {
-      let passlength:string="";
-      let i:number=1;
-      while(i<=password.length) {
-        passlength+="*";
-        i++;
-      }
-      alert(`Tus datos: ${mobile} ${mail} ${passlength} ${notes}`);
+      this.userService.update(this.userId, this.userData).subscribe((response: any) => {
+        console.log(response);
+      })
     }
     else
       alert("You have one or more facts incorrectly. Please, try again.");
@@ -88,5 +85,15 @@ export class EditPersonalDataComponent implements OnInit {
     if (this.password_valid.hasError('required'))
       return "Please, enter your password";
     return this.password_valid.hasError('minlength') ? 'Too short password' : '';
+  }
+  getErrorFirstName(): string {
+    if (this.first_name_valid.hasError('required'))
+      return "Please, enter your first name";
+    return "";
+  }
+  getErrorLastName(): string {
+    if (this.last_name_valid.hasError('required'))
+      return "Please, enter your last name";
+    return "";
   }
 }

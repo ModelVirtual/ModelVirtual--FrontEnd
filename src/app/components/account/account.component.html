@@ -1,5 +1,5 @@
 <div>
-  <a href="/home/{{userData.id}}">
+  <a href="/home">
     <mat-icon>arrow_back</mat-icon>
   </a>
   <button id="settings-btn" mat-icon-button color="transparent">
@@ -12,7 +12,14 @@
   <h2>
     <mat-icon >person</mat-icon>
     Personal Data
-    <a href="/account/edit-data/{{userData.id}}">
+    <a href="/home/account/edit-data">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </a>
+  </h2>
+  <h2>
+    <mat-icon >favorite</mat-icon>
+    Favorites
+    <a href="/favorites">
       <mat-icon>keyboard_arrow_right</mat-icon>
     </a>
   </h2>
@@ -29,7 +36,7 @@
       <button [routerLink]="''" id="sign-out-btn" mat-icon-button color="red">
         <mat-icon>exit_to_app</mat-icon>
       </button>
-      <a href="">Sign out</a>
+      <a href="/" style="text-decoration: none; color: #000;" (click)="signOut()">Sign out</a>
     </h2>
   </div>
 </div>

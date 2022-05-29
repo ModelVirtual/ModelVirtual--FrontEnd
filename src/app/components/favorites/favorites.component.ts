@@ -17,6 +17,7 @@ export class FavoritesComponent implements OnInit {
   favoriteData: Product;
   dataSource: MatTableDataSource<any>;
   displayedColumns: string[];
+  userId: number;
 
   /*@ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator;*/
@@ -28,13 +29,19 @@ export class FavoritesComponent implements OnInit {
     this.displayedColumns = ['id', 'name', 'price', 'brand', 'image', 'size'];
     this.favoriteData = {} as Product;
     this.dataSource = new MatTableDataSource<any>();
+    this.userId = -1;
   }
   ngOnInit(): void {
+    this.getUserId();
     this.getAllFavorites();
     //this.dataSource.paginator=this.paginator;
   }
+  private getUserId(): void {
+    // @ts-ignore
+    this.userId = +sessionStorage.getItem('userId');
+  }
   getAllFavorites(): void{
-    this.favoriteService.getAll().subscribe((response: any)=>{
+    this.favoriteService.getAllByUserId(this.userId).subscribe((response: any)=>{
       this.dataSource.data = response;
       console.log(this.dataSource.data);
     });

@@ -10,7 +10,7 @@ import {ResponseInterface} from "../interfaces/response.interface";
   providedIn: 'root'
 })
 export class UserService {
-  apiURL = 'https://my-json-server.typicode.com/mauripradoch/json-modelvirtual/users'
+  apiURL = 'http://localhost:3000/users'
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': "application/json"})
@@ -21,8 +21,12 @@ export class UserService {
   getUsers():Observable<Users[]>{
     return this.http.get<Users[]>(this.apiURL, this.httpOptions);
   }
-  getUserById(id:number) {
-    return this.users$.pipe(map(product=>product.find(p=>p.id===id)));
+  getUserById(id:number):Observable<Users>  {
+    //console.log(id);
+    return this.http.get<Users>(`${this.apiURL}/${id}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
   }
   getUserByEmail(email: string) {
     return this.users$.pipe(map(product=>product.find(p=>p.email===email)));

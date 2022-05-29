@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ProductService {
-  apiURL='https://my-json-server.typicode.com/mauripradoch/json-modelvirtual/products';
+  apiURL='http://localhost:3000/products';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
@@ -25,7 +25,8 @@ export class ProductService {
   }
 
 
-  getProductById(id:number) {
+  getProductById(id:number):Observable<Product> {
+    // @ts-ignore
     return this.products$.pipe(map(product=>product.find(p=>p.id===id)));//(`${this.apiURL}?id=${id}`,this.httpOptions);
   }
 }
