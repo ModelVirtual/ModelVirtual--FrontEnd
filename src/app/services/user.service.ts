@@ -4,13 +4,12 @@ import {Observable, throwError} from "rxjs";
 import {Users} from "../interfaces/user.interface";
 import {catchError, map, retry, shareReplay} from "rxjs/operators";
 import {Product} from "../interfaces/product.interface";
-import {ResponseInterface} from "../interfaces/response.interface";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  apiURL = 'https://my-json-server.typicode.com/mauripradoch/json-modelvirtual/users'
+  apiURL = 'https://my-json-server.typicode.com/mauriprado/json-modelvirtual/users'
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': "application/json"})
@@ -21,8 +20,12 @@ export class UserService {
   getUsers():Observable<Users[]>{
     return this.http.get<Users[]>(this.apiURL, this.httpOptions);
   }
-  getUserById(id:number) {
-    return this.users$.pipe(map(product=>product.find(p=>p.id===id)));
+  getUserById(id:number):Observable<Users>  {
+    //console.log(id);
+    return this.http.get<Users>(`${this.apiURL}/${id}`, this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
   }
   getUserByEmail(email: string) {
     return this.users$.pipe(map(product=>product.find(p=>p.email===email)));

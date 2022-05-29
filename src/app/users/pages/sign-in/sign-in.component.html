@@ -1,0 +1,33 @@
+<div class="logo">
+  <img src="https://i.ibb.co/h9sV0Fx/Logo.png" alt="">
+</div>
+<div class="container">
+  <!--Input for the email-->
+  <h3 class="title">Email</h3>
+  <form class="example-form" [formGroup]="loginForm" (ngSubmit)="InsertUser()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ex. pat@example.com" class="email" formControlName="email">
+      <mat-hint>Enter your email</mat-hint>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+    <!--Input for the password-->
+    <h3 class="title">Password</h3>
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput #message maxlength="25" formControlName="password">
+      <mat-hint align="start"><strong>Enter your password</strong> </mat-hint>
+    </mat-form-field>
+    <div class="button">
+      <a href="home"><button mat-raised-button>Login</button></a>
+    </div>
+  </form>
+</div>
+
+<div class="paragraph">
+  <p><a href="register" class="register">Register</a> to ModelVirtual now</p>
+  <a href="forgotYourPassword" class="forgot_password">I forgot my password</a>
+</div>
