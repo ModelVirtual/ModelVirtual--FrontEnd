@@ -9,8 +9,8 @@ import {catchError, map, retry, shareReplay} from "rxjs/operators";
 })
 export class UsersService {
 
-  basePath = 'http://localhost:3000/api/v1/'
-  apiURL = 'http://localhost:3000/api/v1/users'
+  basePath = 'https://my-json-server.typicode.com/mauriprado/json-modelvirtual/'
+  apiURL = 'https://my-json-server.typicode.com/mauriprado/json-modelvirtual/users'
   constructor(private http:HttpClient) { }
 
   httpOptions = {

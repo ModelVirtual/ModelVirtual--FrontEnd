@@ -9,7 +9,7 @@ import {Product} from "../interfaces/product.interface";
   providedIn: 'root'
 })
 export class ShopService {
-  basePath="http://localhost:3000/shops";
+  basePath="https://my-json-server.typicode.com/mauriprado/json-modelvirtual/shops";
   httpOptions= {
     headers:new HttpHeaders({'Content-Type' : 'application/json'})
   }

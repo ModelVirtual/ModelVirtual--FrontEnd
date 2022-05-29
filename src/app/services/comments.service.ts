@@ -8,7 +8,7 @@ import {BehaviorSubject, Observable, Subject, throwError} from "rxjs";
   providedIn: 'root'
 })
 export class CommentsService {
-  apiURL='http://localhost:3000/comments';
+  apiURL='https://my-json-server.typicode.com/mauriprado/json-modelvirtual/comments';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
