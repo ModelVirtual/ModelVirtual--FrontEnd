@@ -9,7 +9,7 @@ import {Favorite} from "../interfaces/favorite.interface";
   providedIn: 'root'
 })
 export class FavoriteService {
-  apiURL='http://localhost:3000/favorites';
+  apiURL='https://my-json-server.typicode.com/mauriprado/json-modelvirtual/favorites';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }

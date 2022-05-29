@@ -4,13 +4,12 @@ import {Observable, throwError} from "rxjs";
 import {Users} from "../interfaces/user.interface";
 import {catchError, map, retry, shareReplay} from "rxjs/operators";
 import {Product} from "../interfaces/product.interface";
-import {ResponseInterface} from "../interfaces/response.interface";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  apiURL = 'http://localhost:3000/users'
+  apiURL = 'https://my-json-server.typicode.com/mauriprado/json-modelvirtual/users'
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': "application/json"})
