@@ -25,12 +25,7 @@ export class LoginComponent implements OnInit {
 
   //id: number
 
-  @ViewChild(MatPaginator, {static: true})
-  paginator!: MatPaginator;
-  @ViewChild(MatSort)
-  sort!: MatSort;
-  @ViewChild('studentForm', {static: true})
-  studentForm!: NgForm;
+
 
   constructor(private userService: UserService, private dialog: MatDialog,
               private router: Router) {
@@ -43,7 +38,6 @@ export class LoginComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
     this.getAllUsers();
   }
   getAllUsers(): void{

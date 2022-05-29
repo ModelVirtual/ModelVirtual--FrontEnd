@@ -28,6 +28,7 @@ export class SignInComponent implements OnInit {
       this.userService.setCurrentUser(JSON.stringify(res.user));
       console.log(res.user);
       this.loginForm.reset();
+      sessionStorage.setItem('userId', ''+res.user.id);
       this.router.navigate(['home']).then();
     })
   }

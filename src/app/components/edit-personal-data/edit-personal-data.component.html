@@ -3,7 +3,23 @@
     <mat-icon routerLink="/home/account">arrow_back</mat-icon>
   </button> <br>
   <img class="circular--square" src="assets/avatar.png">
-  <h1>{{users_name}}</h1>
+  <h1>{{userFullName}}</h1>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="Firstname" required [(ngModel)]="userData.firstName" [formControl]="first_name_valid">
+      <mat-error *ngIf="first_name_valid.invalid">{{getErrorFirstName()}}</mat-error>
+      <mat-icon matSuffix>account_box</mat-icon>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Lastname" required [(ngModel)]="userData.lastName" [formControl]="last_name_valid">
+      <mat-error *ngIf="last_name_valid.invalid">{{getErrorLastName()}}</mat-error>
+      <mat-icon matSuffix>account_circle</mat-icon>
+    </mat-form-field>
+  </p>
   <p>
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
@@ -23,7 +39,7 @@
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Mobile</mat-label>
-      <input #mobileinput matInput placeholder="123456789" [formControl]="phone_valid" required>
+      <input matInput placeholder="123456789" [formControl]="phone_valid" required [(ngModel)]="userData.phone">
       <mat-error *ngIf="phone_valid.invalid">{{getErrorPhone()}}</mat-error>
       <mat-icon matSuffix>phone</mat-icon>
     </mat-form-field>
@@ -31,7 +47,7 @@
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput placeholder="name@email.com" #emailinput [formControl]="email_valid" required>
+      <input matInput placeholder="name@email.com" [formControl]="email_valid" required [(ngModel)]="userData.email">
       <mat-error *ngIf="email_valid.invalid">{{getErrorEmail()}}</mat-error>
       <mat-icon matSuffix>email</mat-icon>
     </mat-form-field>
@@ -39,7 +55,7 @@
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
-      <input matInput [type]="hide_pw ? 'password' : 'text'" #passinput [formControl]="password_valid" required>
+      <input matInput [type]="hide_pw ? 'password' : 'text'" [formControl]="password_valid" [(ngModel)]="userData.password" required>
       <button mat-icon-button matSuffix (click)="hide_pw = !hide_pw" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide_pw">
         <mat-icon>{{hide_pw ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
@@ -49,8 +65,8 @@
   <p>
     <mat-form-field appearance="fill">
       <mat-label>Notes</mat-label>
-      <textarea #notesinput matInput></textarea>
+      <textarea matInput [(ngModel)]="userData.notes"></textarea>
     </mat-form-field>
   </p>
-  <button id="edit-btn" mat-raised-button (click)="edit(mobileinput.value,emailinput.value,passinput.value,notesinput.value)">EDIT</button>
+  <button id="edit-btn" mat-raised-button (click)="edit()">EDIT</button>
 </div>

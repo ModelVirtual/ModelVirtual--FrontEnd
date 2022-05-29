@@ -112,8 +112,67 @@
       "shopId": 4
     }
   ],
-  "favorites": [
+  "favorites": [],
+  "users": [
     {
+      "email": "17.dotero.17@gmail.com",
+      "password": "$2a$10$T9f5Cp6KHNQbteO9yg5HU.nsIrrLZSMY12Gopf0JqwzpztYdleOgS",
+      "firstName": "Diego",
+      "lastName": "Porta",
+      "ProfileImage": "https://i.ibb.co/4g1bs10/avatar1.jpg",
+      "year": "",
+      "id": 1
+    },
+    {
+      "email": "17.dotero@gmail.com",
+      "password": "$2a$10$ZkzyajjsSMDHHQ3n9pxcseF/1X/nTi.ZWY5fFxQ3z3e9x0qeB3FVa",
+      "firstName": "Diego",
+      "lastName": "Porta",
+      "ProfileImage": "https://i.ibb.co/sHYDRdh/avatar2.jpg",
+      "year": "",
+      "id": 2
+    },
+    {
+      "email": "diegoporta@gmail.com",
+      "password": "$2a$10$eavcsIeJs3wIfSigVr9OoemgkaI/E04/jO4UloaB5WW5BMGUf9nN6",
+      "firstName": "holi",
+      "lastName": "boli",
+      "ProfileImage": "https://i.ibb.co/p0nVg0n/avatar4.jpg",
+      "year": "",
+      "confirmPassword": "",
+      "id": 4
+    },
+    {
+      "email": "gerardo.caldasd@gmail.com",
+      "password": "Gerardo18",
+      "firstName": "holi",
+      "lastName": "boli",
+      "ProfileImage": "https://i.ibb.co/p0nVg0n/avatar4.jpg",
+      "year": "23",
+      "confirmPassword": "Gerardo18",
+      "id": 5
+    },
+    {
+      "email": "gerard651@hotmail.com",
+      "password": "$2a$10$ebrnZqMldSHNbZPtmaXWpuvf5Y1GBbsUxOmxYelie5aifv2.z4qxq",
+      "firstName": "Gerardo Gabriel",
+      "lastName": "Caldas Díaz",
+      "ProfileImage": "",
+      "year": "",
+      "confirmPassword": "",
+      "id": 6
+    },
+    {
+      "email": "holiquetal@mailbest.com",
+      "password": "$2a$10$gPlujTxfUcJywLEyJTv2JutI5Fg1vEwnqRUeNRHF4Ysqi5zILQK0.",
+      "firstName": "Mauri",
+      "lastName": "Prado",
+      "ProfileImage": "",
+      "year": "",
+      "confirmPassword": "",
+      "id": 7,
+      "phone": "123456",
+      "notes": "Holaaa"
       "id": 1,
       "name": "Winter collection complete set",
       "price": 3400,

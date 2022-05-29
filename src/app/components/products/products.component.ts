@@ -18,11 +18,32 @@ export class ProductsComponent implements OnInit {
   dataSource:MatTableDataSource<any>
   displayedColumns: string[] = ['id', 'name', 'price', 'brand', 'image', 'size'];
   shopId: number;
+  userId: number;
+
   constructor(private favoriteService: FavoriteService, public dialog:MatDialog,
               private route: ActivatedRoute, private shopService:ShopService) {
     this.productData = {} as Product;
     this.dataSource = new MatTableDataSource<any>();
     this.shopId = -1;
+
+    this.userId = -1;
+  }
+
+  ngOnInit() {
+    this.getUserId();
+    this.getShopId();
+    this.getProductsByShopId();
+  }
+  private getUserId(): void {
+    // @ts-ignore
+    this.userId = +sessionStorage.getItem('userId');
+  }
+  private getShopId(): void {
+    this.route.paramMap.subscribe((params)=> {
+      // @ts-ignore
+      this.shopId = +params.get('id');
+    })
+  }
   }
 
   ngOnInit() {
@@ -54,7 +75,8 @@ export class ProductsComponent implements OnInit {
     return false;
   }
   addToFavorites(id: number): void {
-    this.favoriteService.create(this.dataSource.data[id - 1]).subscribe((response: any) => {
+    console.log(this.dataSource.data[id - 1]);
+    this.favoriteService.create(this.dataSource.data[id - 1], this.userId).subscribe((response: any) => {
       console.log(response);
       const dialogRef=this.dialog.open(AddedFavoritesDialogComponent);
     });
