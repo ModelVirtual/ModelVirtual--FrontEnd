@@ -77,6 +77,7 @@ const routes: Routes = [
     SignUpComponent,
     IsLognupComponent,
     LoginComponent
+    IsLognupComponent
   ],
   imports: [
     BrowserModule,

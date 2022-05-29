@@ -4,4 +4,5 @@
   "/sign-up": "/signup",
   "/shops/:id/products": "/products?shopId=:id",
   "/favorites/user/:id": "/favorites?userId=:id"
+  "/shops/:id/products": "/products?shopId=:id"
 }

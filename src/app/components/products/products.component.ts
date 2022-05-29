@@ -19,11 +19,13 @@ export class ProductsComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'price', 'brand', 'image', 'size'];
   shopId: number;
   userId: number;
+
   constructor(private favoriteService: FavoriteService, public dialog:MatDialog,
               private route: ActivatedRoute, private shopService:ShopService) {
     this.productData = {} as Product;
     this.dataSource = new MatTableDataSource<any>();
     this.shopId = -1;
+
     this.userId = -1;
   }
 
@@ -35,6 +37,18 @@ export class ProductsComponent implements OnInit {
   private getUserId(): void {
     // @ts-ignore
     this.userId = +sessionStorage.getItem('userId');
+  }
+  private getShopId(): void {
+    this.route.paramMap.subscribe((params)=> {
+      // @ts-ignore
+      this.shopId = +params.get('id');
+    })
+  }
+  }
+
+  ngOnInit() {
+    this.getShopId();
+    this.getProductsByShopId();
   }
   private getShopId(): void {
     this.route.paramMap.subscribe((params)=> {

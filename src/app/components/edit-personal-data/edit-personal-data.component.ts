@@ -38,6 +38,21 @@ export class EditPersonalDataComponent implements OnInit {
   ngOnInit(): void {
     this.getUserId();
     this.getUserData();
+
+    this.route.paramMap.subscribe(
+      params=>{// @ts-ignore
+        this.userId= +params.get('id');}
+    );
+
+
+    // @ts-ignore
+    this.userData=this.UserService.getUserByEmail(this.userId)
+      .pipe(// @ts-ignore
+        catchError(error => {
+          console.log('Error',error);
+          return EMPTY;
+        })
+      );
   }
   private isFormValid() : boolean {
     return !this.email_valid.hasError('required') &&
