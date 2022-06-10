@@ -3,14 +3,15 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {Users} from "../../interfaces/user.interface";
 import {catchError, map, retry, shareReplay} from "rxjs/operators";
+import {jsonServerLink} from "../../services/http-common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  basePath = 'https://my-json-server.typicode.com/mauriprado/json-modelvirtual/'
-  apiURL = 'https://my-json-server.typicode.com/mauriprado/json-modelvirtual/users'
+  basePath = `${jsonServerLink}/`;
+  apiURL = `${jsonServerLink}/users`;
   constructor(private http:HttpClient) { }
 
   httpOptions = {

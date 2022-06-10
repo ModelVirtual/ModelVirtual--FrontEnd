@@ -4,12 +4,13 @@ import {map, retry, shareReplay} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {Product} from "../interfaces/product.interface";
 import {Favorite} from "../interfaces/favorite.interface";
+import {apiLink} from "./http-common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoriteService {
-  apiURL='https://my-json-server.typicode.com/mauriprado/json-modelvirtual/favorites';
+  apiURL=`${apiLink}/favorites`;
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }

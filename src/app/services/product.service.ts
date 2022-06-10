@@ -3,12 +3,13 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { shareReplay, map } from 'rxjs/operators';
 import {Product} from "../interfaces/product.interface";
 import {Observable} from "rxjs";
+import {apiLink} from "./http-common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  apiURL='https://my-json-server.typicode.com/mauriprado/json-modelvirtual/products';
+  apiURL=`${apiLink}/products`;
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }

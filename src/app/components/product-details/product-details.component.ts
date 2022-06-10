@@ -22,6 +22,22 @@ export class ProductDetailsComponent implements OnInit {
   ){
 
   }
+
+  sizeArrayFromStr(sizes: string): Array<string> {
+    let sizeArray:Array<string> = new Array<string>();
+    let size: string = "";
+    for(let i=0;i<sizes.length; ++i) {
+      if (sizes.charAt(i)==',' || i==sizes.length-1)
+      {
+        sizeArray.push(size);
+        size = "";
+      }
+      else
+        size+=sizes.charAt(i);
+    }
+    return sizeArray;
+  }
+
   ngOnInit():void {
     this.route.paramMap.subscribe(
       params => {
