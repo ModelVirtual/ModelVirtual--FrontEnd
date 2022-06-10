@@ -33,12 +33,7 @@
       "price": 3400,
       "brand": "Gucci",
       "image": "https://i.ibb.co/GVTfPKg/ID1.jpg",
-      "size": [
-        "XS",
-        "S",
-        "M",
-        "L"
-      ],
+      "sizes": "XS,S,M,",
       "shopId": 1
     },
     {
@@ -47,12 +42,7 @@
       "price": 390,
       "brand": "Gucci",
       "image": "https://i.ibb.co/Tcgffbt/ID2.jpg",
-      "size": [
-        "XS",
-        "S",
-        "M",
-        "L"
-      ],
+      "sizes": "XS,S,M,L,",
       "shopId": 2
     },
     {
@@ -61,12 +51,7 @@
       "price": 2980,
       "brand": "Gucci",
       "image": "https://i.ibb.co/dLJRXdD/ID3.jpg",
-      "size": [
-        "XS",
-        "S",
-        "M",
-        "L"
-      ],
+      "sizes": "XS,S,M,L,",
       "shopId": 3
     },
     {
@@ -75,12 +60,7 @@
       "price": 1500,
       "brand": "Gucci",
       "image": "https://i.ibb.co/KmcF40J/ID4.jpg",
-      "size": [
-        "XS",
-        "S",
-        "M",
-        "L"
-      ],
+      "sizes": "XS,S,M,L,",
       "shopId": 1
     },
     {
@@ -89,12 +69,7 @@
       "price": 2800,
       "brand": "Gucci",
       "image": "https://i.ibb.co/L96j2zB/ID5.jpg",
-      "size": [
-        "XS",
-        "S",
-        "M",
-        "L"
-      ],
+      "sizes": "XS,S,M,L,",
       "shopId": 4
     },
     {
@@ -103,12 +78,7 @@
       "price": 462,
       "brand": "Gucci",
       "image": "https://i.ibb.co/G3ySzxn/ID6.jpg",
-      "size": [
-        "XS",
-        "S",
-        "M",
-        "L"
-      ],
+      "sizes": "XS,S,M,L,",
       "shopId": 4
     }
   ],
@@ -120,12 +90,7 @@
       "price": 3400,
       "brand": "Gucci",
       "image": "https://i.ibb.co/GVTfPKg/ID1.jpg",
-      "size": [
-        "XS",
-        "S",
-        "M",
-        "L"
-      ],
+      "sizes": "XS,S,M,L",
       "shopId": 1,
       "userId": 7
     },
@@ -136,12 +101,7 @@
       "price": 462,
       "brand": "Gucci",
       "image": "https://i.ibb.co/G3ySzxn/ID6.jpg",
-      "size": [
-        "XS",
-        "S",
-        "M",
-        "L"
-      ],
+      "sizes": "XS,S,M,L,",
       "shopId": 4,
       "userId": 1
     }

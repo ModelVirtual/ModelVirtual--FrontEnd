@@ -5,7 +5,7 @@ export interface Favorite {
   price:number;
   brand:string;
   image:string;
-  size:string;
+  sizes:string;
   shopId: number;
   userId: number;
 }

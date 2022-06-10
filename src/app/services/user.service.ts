@@ -4,12 +4,13 @@ import {Observable, throwError} from "rxjs";
 import {Users} from "../interfaces/user.interface";
 import {catchError, map, retry, shareReplay} from "rxjs/operators";
 import {Product} from "../interfaces/product.interface";
+import {jsonServerLink} from "./http-common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  apiURL = 'https://my-json-server.typicode.com/mauriprado/json-modelvirtual/users'
+  apiURL = `${jsonServerLink}/users`;
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': "application/json"})

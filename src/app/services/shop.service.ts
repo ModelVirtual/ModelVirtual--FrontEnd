@@ -4,12 +4,13 @@ import {Observable, throwError} from "rxjs";
 import {Shop} from "../interfaces/shop.interface";
 import {catchError, retry} from "rxjs/operators";
 import {Product} from "../interfaces/product.interface";
+import {apiLink} from "./http-common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
-  basePath="https://my-json-server.typicode.com/mauriprado/json-modelvirtual/shops";
+  basePath=`${apiLink}/shops`;
   httpOptions= {
     headers:new HttpHeaders({'Content-Type' : 'application/json'})
   }
