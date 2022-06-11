@@ -18,9 +18,11 @@ export class FavoriteService {
   favorites$=this.getFavorites().pipe(shareReplay(1));
 
   getAll():Observable<Favorite>{
+    console.log(this.apiURL);
     return this.http.get<Favorite>(this.apiURL, this.httpOptions);
   }
   getAllByUserId(userId: number): Observable<Favorite> {
+    console.log(`${this.apiURL}/user/${userId}`);
     return this.http.get<Favorite>(`${this.apiURL}/user/${userId}`, this.httpOptions);
   }
 
@@ -29,9 +31,10 @@ export class FavoriteService {
   }
 
   create(item: any, userId: number): Observable<Favorite> {
-    item.userId = userId;
+    item.idUser = userId;
     item.productId = item.id;
     item.id = 0;
+    console.log(userId);
     return this.http.post<Favorite>(this.apiURL, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2)

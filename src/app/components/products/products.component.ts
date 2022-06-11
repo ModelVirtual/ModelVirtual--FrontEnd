@@ -61,10 +61,18 @@ export class ProductsComponent implements OnInit {
     return false;
   }
   addToFavorites(id: number): void {
-    console.log(this.dataSource.data[id - 1]);
-    this.favoriteService.create(this.dataSource.data[id - 1], this.userId).subscribe((response: any) => {
-      console.log(response);
-      const dialogRef=this.dialog.open(AddedFavoritesDialogComponent);
-    });
+    console.log(id);
+    console.log(this.dataSource.data);
+    let identify = -1;
+    let i = 0;
+    this.dataSource.data.map((res)=>{
+      if(res.id === id){
+        this.favoriteService.create(this.dataSource.data[i], this.userId).subscribe((response: any) => {
+          console.log(response);
+          const dialogRef=this.dialog.open(AddedFavoritesDialogComponent);
+        });
+      }
+      i += 1;
+    })
   }
 }

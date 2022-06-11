@@ -19,11 +19,6 @@
       "id": 4,
       "name": "H&M",
       "logoUrl": "https://assets.turbologo.com/blog/es/2021/07/15062755/shutterstock_1784238500-958x575-1.jpg"
-    },
-    {
-      "email": "holi@gmail.com",
-      "password": "prueba123",
-      "id": 5
     }
   ],
   "products": [
@@ -104,6 +99,17 @@
       "sizes": "XS,S,M,L,",
       "shopId": 4,
       "userId": 1
+    },
+    {
+      "id": 3,
+      "name": "Winter collection complete set",
+      "price": 3400,
+      "brand": "Gucci",
+      "image": "https://i.ibb.co/GVTfPKg/ID1.jpg",
+      "sizes": "XS,S,M,",
+      "shopId": 1,
+      "userId": 8,
+      "productId": 1
     }
   ],
   "users": [
@@ -166,6 +172,16 @@
       "id": 7,
       "phone": "123456",
       "notes": "Holaaa"
+    },
+    {
+      "email": "alex123@gmail.com",
+      "password": "$2a$10$FqoLEyU1jHO0YjByFZP9.eufAUdCanh0itvAqSC/2ADefs6u7a7.2",
+      "firstName": "Diego",
+      "lastName": "Alexander porta",
+      "ProfileImage": "",
+      "year": "",
+      "confirmPassword": "",
+      "id": 8
     }
   ],
   "comments": [
