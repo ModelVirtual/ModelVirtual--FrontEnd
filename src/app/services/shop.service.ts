@@ -31,7 +31,7 @@ export class ShopService {
       );
   }
   getAllProductsById(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.basePath}/${id}/products`, this.httpOptions)
+    return this.http.get<Product>(`${this.basePath}/${id}/product`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

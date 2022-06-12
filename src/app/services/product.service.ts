@@ -9,7 +9,7 @@ import {apiLink} from "./http-common";
   providedIn: 'root'
 })
 export class ProductService {
-  apiURL=`${apiLink}/products`;
+  apiURL=`${apiLink}/product`;
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
