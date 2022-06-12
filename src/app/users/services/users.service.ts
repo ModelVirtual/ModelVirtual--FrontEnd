@@ -38,12 +38,12 @@ export class UsersService {
         catchError(this.handleError));
   }
   singIn(user: Users): Observable<Users>{
-    return this.http.post<Users>(`${this.basePath}sign-in`, user).pipe(
+    return this.http.post<Users>(`${this.basePath}signin`, user).pipe(
       retry(2), catchError(this.handleError)
     )
   }
   signUp(user: Users): Observable<Users>{
-    return this.http.post<Users>(`${this.basePath}sign-up`, user)
+    return this.http.post<Users>(`${this.basePath}signup`, user)
       .pipe(retry(2), catchError(this.handleError));
   }
   setCurrentUser(user: string){
