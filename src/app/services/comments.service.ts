@@ -3,12 +3,13 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {shareReplay, map, retry, catchError, tap} from 'rxjs/operators';
 import {CommentInterface} from "../interfaces/comment.interface";
 import {BehaviorSubject, Observable, Subject, throwError} from "rxjs";
+import {apiLink} from "./http-common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommentsService {
-  apiURL='https://my-json-server.typicode.com/mauriprado/json-modelvirtual/comments';
+  apiURL=`${apiLink}/comments`;
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }

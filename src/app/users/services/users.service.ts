@@ -3,14 +3,15 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {Users} from "../../interfaces/user.interface";
 import {catchError, map, retry, shareReplay} from "rxjs/operators";
+import {jsonServerLink} from "../../services/http-common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  basePath = 'https://my-json-server.typicode.com/mauriprado/json-modelvirtual/'
-  apiURL = 'https://my-json-server.typicode.com/mauriprado/json-modelvirtual/users'
+  basePath = `${jsonServerLink}/`;
+  apiURL = `${jsonServerLink}/users`;
   constructor(private http:HttpClient) { }
 
   httpOptions = {
@@ -37,12 +38,12 @@ export class UsersService {
         catchError(this.handleError));
   }
   singIn(user: Users): Observable<Users>{
-    return this.http.post<Users>(`${this.basePath}sign-in`, user).pipe(
+    return this.http.post<Users>(`${this.basePath}signin`, user).pipe(
       retry(2), catchError(this.handleError)
     )
   }
   signUp(user: Users): Observable<Users>{
-    return this.http.post<Users>(`${this.basePath}sign-up`, user)
+    return this.http.post<Users>(`${this.basePath}signup`, user)
       .pipe(retry(2), catchError(this.handleError));
   }
   setCurrentUser(user: string){

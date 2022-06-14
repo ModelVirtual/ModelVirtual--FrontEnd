@@ -34,16 +34,28 @@ export class FavoritesComponent implements OnInit {
   ngOnInit(): void {
     this.getUserId();
     this.getAllFavorites();
-    //this.dataSource.paginator=this.paginator;
   }
   private getUserId(): void {
     // @ts-ignore
     this.userId = +sessionStorage.getItem('userId');
   }
+  sizeArrayFromStr(sizes: string): Array<string> {
+    let sizeArray:Array<string> = new Array<string>();
+    let size: string = "";
+    for(let i=0;i<sizes.length; ++i) {
+      if (sizes.charAt(i)==',' || i==sizes.length-1)
+      {
+        sizeArray.push(size);
+        size = "";
+      }
+      else
+        size+=sizes.charAt(i);
+    }
+    return sizeArray;
+  }
   getAllFavorites(): void{
     this.favoriteService.getAllByUserId(this.userId).subscribe((response: any)=>{
       this.dataSource.data = response;
-      console.log(this.dataSource.data);
     });
   }
 

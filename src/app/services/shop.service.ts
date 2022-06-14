@@ -4,12 +4,13 @@ import {Observable, throwError} from "rxjs";
 import {Shop} from "../interfaces/shop.interface";
 import {catchError, retry} from "rxjs/operators";
 import {Product} from "../interfaces/product.interface";
+import {apiLink, jsonServerLink} from "./http-common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
-  basePath="https://my-json-server.typicode.com/mauriprado/json-modelvirtual/shops";
+  basePath=`${apiLink}/shops`;
   httpOptions= {
     headers:new HttpHeaders({'Content-Type' : 'application/json'})
   }
@@ -30,7 +31,7 @@ export class ShopService {
       );
   }
   getAllProductsById(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.basePath}/${id}/products`, this.httpOptions)
+    return this.http.get<Product>(`${this.basePath}/${id}/product`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)
