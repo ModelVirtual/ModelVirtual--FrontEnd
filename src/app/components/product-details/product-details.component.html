@@ -11,7 +11,6 @@
         <h4><b>{{book.name}}</b></h4>
         <h3>{{book.price | currency : 'S/. '}}</h3>
         <p>sizes</p>
-        <div class="square" *ngFor="let s of sizeArrayFromStr(book.sizes);let i= index ">{{s}}</div>
       </div>
     </div>
   </mat-card>

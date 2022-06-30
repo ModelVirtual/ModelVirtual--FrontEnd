@@ -56,4 +56,10 @@ export class UserService {
       retry(2)
     )
   }
+  setCurrentUser(user: string){
+    localStorage.setItem('user', user);
+  }
+  getCurrentUser(){
+    return localStorage.getItem('user');
+  }
 }

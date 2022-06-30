@@ -38,7 +38,9 @@ export class NavBarComponent implements OnInit {
     // @ts-ignore
     this.userService.getUserById(Number(this.tokenService.getUserName())).subscribe((response:any)=>{
       this.userData = response;
-      console.log(response);
+      if(this.userData.profileImage == ""){
+        this.userData.profileImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1200px-User_icon-cp.svg.png";
+      }
     })
   }
 }

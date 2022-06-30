@@ -19,7 +19,7 @@
   <a class="linkSecction" href="/favorites">
     <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">favorite</mat-icon>
   </a>
-  <div *ngIf="userData.profileImage.length>0; else elseTemplate2">
+  <div *ngIf="userData.profileImage != null; else elseTemplate2">
     <a href="/home/account">
       <img [src]="userData.profileImage" alt="" >
     </a>
