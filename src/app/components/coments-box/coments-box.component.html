@@ -3,7 +3,7 @@
     <form [formGroup]="form" (ngSubmit)="sentComment()"  class="form-comment">
         <div class="Comment-input">
             <div class="im-profile">
-                <img  src="{{userDataCurrent.ProfileImage}}" alt="No image available">
+                <img  src="{{userDataCurrent.profileImage}}" alt="No image available">
             </div>
             <mat-form-field class="example-full-width" >
                 <mat-label>Leave a comment</mat-label>
@@ -14,14 +14,14 @@
         <button mat-raised-button (click)="cancelButton()" type="button" class="but-cancel">Cancel</button>
     </form>
     <div *ngFor="let item of arrayComments;let i=index">
-        <div *ngIf="getUserById(item.userId) | async as algo">
+        <div>
             <mat-card class="example-card">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image" >
-                        <img class="imgPro" mat-card-image src="{{algo.profileImage}}" alt="No image available">
+                        <img class="imgPro" mat-card-image src="{{arrayUsersComment[item.id - 1].profileImage}}" alt="No image available">
                     </div>
-                    <mat-card-title>{{algo.firstName}}</mat-card-title>
-                    <mat-card-subtitle>{{item.Date}}</mat-card-subtitle>
+                    <mat-card-title>{{arrayUsersComment[item.id - 1].firstName}}</mat-card-title>
+                    <mat-card-subtitle>{{item.date}}</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content class="com-des">
                     <p>{{item.description}}</p>
@@ -30,7 +30,5 @@
                     <button mat-button class="but-com">Reply</button>
             </mat-card>
         </div>
-
     </div>
-
 </div>

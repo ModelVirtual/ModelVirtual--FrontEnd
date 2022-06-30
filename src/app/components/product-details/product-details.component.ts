@@ -53,10 +53,6 @@ export class ProductDetailsComponent implements OnInit {
     // @ts-ignore
     this.ProductDetails$=this.productService.getProductById(this.productId);
     this.ProductDetails$.subscribe(clientes =>  clientes);
-
-
-    console.log(this.ProductDetails$)
   }
 
 }
-
