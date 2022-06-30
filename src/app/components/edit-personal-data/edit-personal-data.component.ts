@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
 import {Users} from "../../interfaces/user.interface";
+import {TokenService} from "../../services/token.service";
 @Component({
   selector: 'app-edit-personal-data',
   templateUrl: './edit-personal-data.component.html',
@@ -22,7 +23,7 @@ export class EditPersonalDataComponent implements OnInit {
 
 
   constructor(
-    private userService:UserService
+    private userService:UserService,private tokenService:TokenService
   ) {
     this.hide_pw = true;
     this.userId = -1;
@@ -55,7 +56,7 @@ export class EditPersonalDataComponent implements OnInit {
       this.userId = +sessionStorage.getItem('userId');
   }
   private getUserData() : void {
-    this.userService.getUserById(2).subscribe((response: any) => {
+    this.userService.getUserById(Number(this.tokenService.getUserName())).subscribe((response: any) => {
       this.userData = response;
       this.userData.password = "";
       this.userFullName = response.firstName + ' ' + response.lastName;
