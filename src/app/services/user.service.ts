@@ -29,7 +29,7 @@ export class UserService {
         catchError(this.handleError));
   }
   getUserByEmail(email: string) {
-    return this.users$.pipe(map(product=>product.find(p=>p.email===email)));
+    return this.users$.pipe(map(product=>product.find(p=>p.username===email)));
   }
   update(id: any, item: any): Observable<Users> {
     return this.http.put<Users>(`${this.apiURL}/${id}`, JSON.stringify(item), this.httpOptions)

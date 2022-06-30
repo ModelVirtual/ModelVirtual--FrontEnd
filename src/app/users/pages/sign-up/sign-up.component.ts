@@ -6,6 +6,7 @@ import {UsersService} from "../../services/users.service";
 import {MatDialog} from "@angular/material/dialog";
 import {IsLognupComponent} from "../../../components/is-lognup/is-lognup.component";
 import {MatSort} from "@angular/material/sort";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sign-up',
@@ -25,7 +26,8 @@ export class SignUpComponent implements OnInit {
   sort!: MatSort;
   constructor(private userService: UsersService,
               private dialog: MatDialog,
-              private builder: FormBuilder) {
+              private builder: FormBuilder,
+              private router: Router) {
     this.loginForm = this.builder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -61,8 +63,10 @@ export class SignUpComponent implements OnInit {
       })
       if(insert){
         console.log(this.loginForm.value)
+        this.loginForm.value.profileImage = "";
         this.userService.signUp(this.loginForm.value).subscribe((response: any) =>{
           console.log(response);
+          this.router.navigate([""]);
         })
       }else{
         const dialogRef = this.dialog.open(IsLognupComponent);

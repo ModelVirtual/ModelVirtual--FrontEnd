@@ -12,20 +12,21 @@ import {Users} from "../../interfaces/user.interface";
 })
 export class AccountComponent implements OnInit {
   notif_activated: boolean;
-  // @ts-ignore
   userData: Users;
   constructor(private userService: UserService,
               private activeRoute: ActivatedRoute,private tokenService:TokenService) {
     this.notif_activated = false;
+    this.userData = {} as Users;
   }
 
   ngOnInit(): void {
-    this.getUserById()
+    this.getUserById();
   }
   getUserById() {
     // @ts-ignore
     this.userService.getUserById(Number(this.tokenService.getUserName())).subscribe((response:any)=>{
       this.userData = response;
+
       console.log(response);
     })
   }
