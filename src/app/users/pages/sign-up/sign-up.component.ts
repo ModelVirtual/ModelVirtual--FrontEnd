@@ -29,7 +29,7 @@ export class SignUpComponent implements OnInit {
     this.loginForm = this.builder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       ProfileImage: ['', Validators.required],
       year: ['', Validators.required],
@@ -37,7 +37,7 @@ export class SignUpComponent implements OnInit {
     })
   }
   matcher = new MyErrorStateMatcher();
-  get email() { return this.loginForm.controls['email'];}
+  get username() { return this.loginForm.controls['username'];}
   ngOnInit(): void {
     this.getAllUsers()
     console.log(this.dataUsers)
@@ -55,7 +55,7 @@ export class SignUpComponent implements OnInit {
     }else{
       this.dataUsers.map((res) =>{
         // @ts-ignore
-        if(res.email === this.loginForm.value.email){
+        if(res.username === this.loginForm.value.username){
           insert = false;
         }
       })

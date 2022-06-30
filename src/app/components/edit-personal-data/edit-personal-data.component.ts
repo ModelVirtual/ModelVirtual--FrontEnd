@@ -55,7 +55,7 @@ export class EditPersonalDataComponent implements OnInit {
       this.userId = +sessionStorage.getItem('userId');
   }
   private getUserData() : void {
-    this.userService.getUserById(this.userId).subscribe((response: any) => {
+    this.userService.getUserById(2).subscribe((response: any) => {
       this.userData = response;
       this.userData.password = "";
       this.userFullName = response.firstName + ' ' + response.lastName;

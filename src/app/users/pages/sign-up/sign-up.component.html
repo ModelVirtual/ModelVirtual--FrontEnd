@@ -13,11 +13,11 @@
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Email</mat-label>
-      <input type="email" matInput name="email" formControlName="email" required
+      <input type="username" matInput name="username" formControlName="username" required
              placeholder="user@domain.com">
-      <div *ngIf="email.invalid && (email.dirty || email.touched)">
-        <mat-error *ngIf="email.errors?.['email']">You need to enter an email</mat-error>
-        <mat-error *ngIf="email.errors?.['required']">email is required</mat-error>
+      <div *ngIf="username.invalid && (username.dirty || username.touched)">
+        <mat-error *ngIf="username.errors?.['username']">You need to enter an email</mat-error>
+        <mat-error *ngIf="username.errors?.['required']">email is required</mat-error>
       </div>
     </mat-form-field>
     <mat-form-field class="example-full-width" >
