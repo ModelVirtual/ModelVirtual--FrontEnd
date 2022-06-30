@@ -6,7 +6,10 @@
     <mat-icon>settings</mat-icon>
   </button>
   <h1>Account</h1>
-  <img class="circular--square" src="assets/avatar.png">
+  <img *ngIf="userData.profileImage.length>0; else elseTemplate" class="circular--square" [src]="userData.profileImage">
+  <ng-template #elseTemplate>
+    <img class="circular--square" src="assets/default-avatar.jpg">
+  </ng-template>
   <h3>Username</h3>
   <h2>{{userData.firstName}}  {{userData.lastName}}</h2>
   <h2>
