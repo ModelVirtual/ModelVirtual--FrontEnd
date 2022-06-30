@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MyErrorStateMatcher} from "../../../components/functions/email";
 import {UsersService} from "../../services/users.service";
 import {Router} from "@angular/router";
+import {TokenService} from "../../../services/token.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -10,26 +11,32 @@ import {Router} from "@angular/router";
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
+  roles: string[] = [];
   loginForm: FormGroup
   constructor(private userService: UsersService, public builder: FormBuilder,
-              private router: Router) {
+              private router: Router,private tokenService:TokenService) {
     this.loginForm = this.builder.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5)]]
     })
   }
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  usernameFormControl = new FormControl('', [Validators.required, Validators.email]);
   matcher = new MyErrorStateMatcher();
   ngOnInit(): void {
+    if (this.tokenService.getToken()) {
+      this.roles = this.tokenService.getAuthorities();
+    }
 
   }
   InsertUser(){
     this.userService.singIn(this.loginForm.value).subscribe((res:any) =>{
-      this.userService.setCurrentUser(JSON.stringify(res.user));
-      console.log(res.user);
+      this.tokenService.setToken(res.token);
+      this.tokenService.setUserName(res.id);
+      this.tokenService.setAuthorities(res.roles);
+      this.roles=res.roles;
       this.loginForm.reset();
-      sessionStorage.setItem('userId', ''+res.user.id);
       this.router.navigate(['home']).then();
-    })
+    }
+    );
   }
 }

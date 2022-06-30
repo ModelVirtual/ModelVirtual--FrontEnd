@@ -4,7 +4,7 @@ import {Observable, throwError} from "rxjs";
 import {Shop} from "../interfaces/shop.interface";
 import {catchError, retry} from "rxjs/operators";
 import {Product} from "../interfaces/product.interface";
-import {apiLink, jsonServerLink} from "./http-common";
+import {apiLink} from "./http-common";
 
 @Injectable({
   providedIn: 'root'

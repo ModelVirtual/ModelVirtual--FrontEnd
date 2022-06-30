@@ -3,15 +3,15 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {Users} from "../../interfaces/user.interface";
 import {catchError, map, retry, shareReplay} from "rxjs/operators";
-import {jsonServerLink} from "../../services/http-common";
+import {apiLink} from "../../services/http-common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  basePath = `${jsonServerLink}/`;
-  apiURL = `${jsonServerLink}/users`;
+  basePath = `${apiLink}/users/auth`;
+  apiURL = `${apiLink}/users`;
   constructor(private http:HttpClient) { }
 
   httpOptions = {
@@ -30,20 +30,19 @@ export class UsersService {
   getUsers():Observable<Users[]>{
     return this.http.get<Users[]>(this.apiURL, this.httpOptions);
   }
-  getUserById(id:number) {
-    return this.users$.
-    pipe(
-        map(product=>product.find(p=>p.id===id)),
-        retry(2),
-        catchError(this.handleError));
+  getUserById(id:number):Observable<Users>  {
+    return this.http.get<Users>(`${this.apiURL}/${id}`, this.httpOptions)
+        .pipe(
+            retry(2),
+            catchError(this.handleError));
   }
-  singIn(user: Users): Observable<Users>{
-    return this.http.post<Users>(`${this.basePath}signin`, user).pipe(
+  singIn(user: any): Observable<any>{
+    return this.http.post<any>(`${this.apiURL}/auth/sign-in`, user).pipe(
       retry(2), catchError(this.handleError)
     )
   }
   signUp(user: Users): Observable<Users>{
-    return this.http.post<Users>(`${this.basePath}signup`, user)
+    return this.http.post<Users>(`${this.apiURL}/auth/sign-up`, user)
       .pipe(retry(2), catchError(this.handleError));
   }
   setCurrentUser(user: string){
@@ -52,7 +51,5 @@ export class UsersService {
   getCurrentUser(){
     return localStorage.getItem('user');
   }
-  signOut(){
-    localStorage.removeItem('user');
-  }
+
 }

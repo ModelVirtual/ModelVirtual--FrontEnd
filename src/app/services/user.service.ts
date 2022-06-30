@@ -4,13 +4,13 @@ import {Observable, throwError} from "rxjs";
 import {Users} from "../interfaces/user.interface";
 import {catchError, map, retry, shareReplay} from "rxjs/operators";
 import {Product} from "../interfaces/product.interface";
-import {jsonServerLink} from "./http-common";
+import {apiLink} from "./http-common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  apiURL = `${jsonServerLink}/users`;
+  apiURL = `${apiLink}/users`;
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': "application/json"})
