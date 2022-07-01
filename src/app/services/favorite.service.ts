@@ -18,12 +18,10 @@ export class FavoriteService {
   favorites$=this.getFavorites().pipe(shareReplay(1));
 
   getAll():Observable<Favorite>{
-    console.log(this.apiURL);
     return this.http.get<Favorite>(this.apiURL, this.httpOptions);
   }
   getAllByUserId(userId: number): Observable<Favorite> {
-    console.log(`${this.apiURL}/user/${userId}`);
-    return this.http.get<Favorite>(`${this.apiURL}/user/${userId}`, this.httpOptions);
+    return this.http.get<Favorite>(`${this.apiURL}/users/${userId}`, this.httpOptions);
   }
 
   getFavorites():Observable<Favorite[]>{

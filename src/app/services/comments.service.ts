@@ -32,7 +32,6 @@ export class CommentsService {
   }
 
   getComments():Observable<CommentInterface[]>{
-    console.log(this.apiURL);
     return this.http.get<CommentInterface[]>(this.apiURL);
   }
   getCommentsByProductId(id:number):Observable<CommentInterface[]>{
