@@ -37,7 +37,7 @@ export class FavoritesComponent implements OnInit {
   }
   private getUserId(): void {
     // @ts-ignore
-    this.userId = +sessionStorage.getItem('userId');
+    this.userId = +sessionStorage.getItem('AuthUserName');
   }
   sizeArrayFromStr(sizes: string): Array<string> {
     let sizeArray:Array<string> = new Array<string>();

@@ -59,7 +59,7 @@ export class ComentsBoxComponent implements OnInit {
   getUserById(data: any){
     // @ts-ignore
     data.map((c)=>{
-      let user = this.userService.getUserById(c.user_id).subscribe(u=>{
+      this.userService.getUserById(c.user_id).subscribe(u=>{
         this.arrayUsersComment.push(u);
       })
     })
