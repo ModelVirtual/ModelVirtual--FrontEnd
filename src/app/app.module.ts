@@ -39,7 +39,7 @@ import {FavoriteService} from "./services/favorite.service";
 import {ShopService} from "./services/shop.service";
 import {QRCodeModule} from "angularx-qrcode";
 import {NgQrScannerModule} from "angular2-qrscanner";
-import {LoginComponent} from "./components/login/login.component";
+import {interceptorProvider} from "./interceptors/interceptor.service";
 
 const routes: Routes = [
   { path: 'register', component: SignUpComponent },
@@ -75,8 +75,7 @@ const routes: Routes = [
     ForgotPasswordComponent,
     SignInComponent,
     SignUpComponent,
-    IsLognupComponent,
-    LoginComponent
+    IsLognupComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +97,7 @@ const routes: Routes = [
     QRCodeModule,
     NgQrScannerModule
   ],
-  providers: [ProductService, UserService, FavoriteService, ShopService],
+  providers: [ProductService, UserService, FavoriteService, ShopService,interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddedFavoritesDialogComponent } from './deleted-favorites-dialog.component';
+import { DeletedFavoritesDialogComponent } from './deleted-favorites-dialog.component';
 
-describe('AddedFavoritesDialogComponent', () => {
-  let component: AddedFavoritesDialogComponent;
-  let fixture: ComponentFixture<AddedFavoritesDialogComponent>;
+describe('DeletedFavoritesDialogComponent', () => {
+  let component: DeletedFavoritesDialogComponent;
+  let fixture: ComponentFixture<DeletedFavoritesDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddedFavoritesDialogComponent ]
+      declarations: [ DeletedFavoritesDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddedFavoritesDialogComponent);
+    fixture = TestBed.createComponent(DeletedFavoritesDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

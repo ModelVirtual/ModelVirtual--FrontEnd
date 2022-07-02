@@ -19,5 +19,14 @@
   <a class="linkSecction" href="/favorites">
     <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">favorite</mat-icon>
   </a>
-  <a href="/home/account"><img src="assets/avatar.png" alt="" ></a>
+  <div *ngIf="userData.profileImage != null; else elseTemplate2">
+    <a href="/home/account">
+      <img [src]="userData.profileImage" alt="" >
+    </a>
+  </div>
+  <ng-template #elseTemplate2>
+    <a class="linkSecction" href="/home/account">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">account_circle</mat-icon>
+    </a>
+  </ng-template>
 </mat-card>

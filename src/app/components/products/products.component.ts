@@ -34,7 +34,8 @@ export class ProductsComponent implements OnInit {
   }
   private getUserId(): void {
     // @ts-ignore
-    this.userId = +sessionStorage.getItem('userId');
+    this.userId = +sessionStorage.getItem('AuthUserName');
+    console.log(this.userId);
   }
   private getShopId(): void {
     this.route.paramMap.subscribe((params)=> {
@@ -67,7 +68,7 @@ export class ProductsComponent implements OnInit {
     let i = 0;
     this.dataSource.data.map((res)=>{
       if(res.id === id){
-        this.favoriteService.create(this.dataSource.data[i], this.userId).subscribe((response: any) => {
+          this.favoriteService.create(this.dataSource.data[i], this.userId).subscribe((response: any) => {
           console.log(response);
           const dialogRef=this.dialog.open(AddedFavoritesDialogComponent);
         });

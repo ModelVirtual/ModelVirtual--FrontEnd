@@ -9,7 +9,7 @@ import {apiLink} from "./http-common";
   providedIn: 'root'
 })
 export class CommentsService {
-  apiURL=`${apiLink}/comments`;
+  apiURL=`${apiLink}/comment`;
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
@@ -36,19 +36,17 @@ export class CommentsService {
   }
   getCommentsByProductId(id:number):Observable<CommentInterface[]>{
     return this.comment$.pipe(
-        map(comment=>comment.filter(c=>c.ProductId===id)),
-        retry(2),
-        catchError(this.handleError));
+      map(comment=>comment.filter(c=>c.product_id===id)),
+      retry(1),
+      catchError(this.handleError));
   }
   createComments(item:any):Observable<CommentInterface>{
     return this.http.post<CommentInterface>(this.apiURL, item)
-        .pipe(
-            tap(()=>{
-              this._refresh$.next();
-            })
-        );
+      .pipe(
+        tap(()=>{
+          this._refresh$.next();
+        })
+      );
 
   }
-
-
 }

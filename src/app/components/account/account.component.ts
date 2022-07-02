@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {UsersService} from "../../users/services/users.service";
+import {UserService} from "../../services/user.service";
+import {TokenService} from "../../services/token.service";
+import {Users} from "../../interfaces/user.interface";
+
 
 @Component({
   selector: 'app-account',
@@ -9,22 +12,25 @@ import {UsersService} from "../../users/services/users.service";
 })
 export class AccountComponent implements OnInit {
   notif_activated: boolean;
-  public userData: any = {}
-
-  constructor(private userService: UsersService,
-              private activeRoute: ActivatedRoute) {
+  userData: Users;
+  constructor(private userService: UserService,
+              private activeRoute: ActivatedRoute,private tokenService:TokenService) {
     this.notif_activated = false;
+    this.userData = {} as Users;
   }
 
   ngOnInit(): void {
-    this.getUserById()
+    this.getUserById();
   }
   getUserById() {
     // @ts-ignore
-    this.userData = JSON.parse(this.userService.getCurrentUser())
-    console.log(this.userData)
+    this.userService.getUserById(Number(this.tokenService.getUserName())).subscribe((response:any)=>{
+      this.userData = response;
+
+      console.log(response);
+    })
   }
   signOut(){
-    this.userService.signOut()
+    this.tokenService.logOut()
   }
 }

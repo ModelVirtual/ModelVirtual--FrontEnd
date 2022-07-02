@@ -4,13 +4,13 @@ import {Observable, throwError} from "rxjs";
 import {Users} from "../interfaces/user.interface";
 import {catchError, map, retry, shareReplay} from "rxjs/operators";
 import {Product} from "../interfaces/product.interface";
-import {jsonServerLink} from "./http-common";
+import {apiLink} from "./http-common";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  apiURL = `${jsonServerLink}/users`;
+  apiURL = `${apiLink}/users`;
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': "application/json"})
@@ -29,7 +29,7 @@ export class UserService {
         catchError(this.handleError));
   }
   getUserByEmail(email: string) {
-    return this.users$.pipe(map(product=>product.find(p=>p.email===email)));
+    return this.users$.pipe(map(product=>product.find(p=>p.username===email)));
   }
   update(id: any, item: any): Observable<Users> {
     return this.http.put<Users>(`${this.apiURL}/${id}`, JSON.stringify(item), this.httpOptions)
@@ -55,5 +55,11 @@ export class UserService {
     return this.http.delete(`${this.apiURL}/${id}`, this.httpOptions).pipe(
       retry(2)
     )
+  }
+  setCurrentUser(user: string){
+    localStorage.setItem('user', user);
+  }
+  getCurrentUser(){
+    return localStorage.getItem('user');
   }
 }
